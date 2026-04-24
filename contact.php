@@ -7,11 +7,10 @@
 header('Content-Type: application/json; charset=utf-8');
 
 // ============================================================
-// CONFIGURACIÓN - EDITA ESTOS VALORES
+// CONFIGURACIÓN
 // ============================================================
 $RECAPTCHA_SITE_KEY    = '6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB';
-$RECAPTCHA_PROJECT_ID  = 'TU_PROJECT_ID_DE_GOOGLE_CLOUD';   // <-- pendiente
-$RECAPTCHA_API_KEY     = 'TU_API_KEY_DE_GOOGLE_CLOUD';      // <-- pendiente
+$RECAPTCHA_SECRET_KEY  = '6Le74cQsAAAAACrlgGA5EFTxxcCCKWs0rZ8FlrfA';
 $RECAPTCHA_ACTION      = 'contact';
 $RECAPTCHA_MIN_SCORE   = 0.5;
 
@@ -53,27 +52,16 @@ if ($token === '') {
 }
 
 // ============================================================
-// Validación reCAPTCHA Enterprise contra Google Cloud
+// Validación reCAPTCHA vía siteverify
 // ============================================================
-$endpoint = sprintf(
-    'https://recaptchaenterprise.googleapis.com/v1/projects/%s/assessments?key=%s',
-    urlencode($RECAPTCHA_PROJECT_ID),
-    urlencode($RECAPTCHA_API_KEY)
-);
-
-$payload = json_encode([
-    'event' => [
-        'token'          => $token,
-        'expectedAction' => $RECAPTCHA_ACTION,
-        'siteKey'        => $RECAPTCHA_SITE_KEY,
-    ],
-]);
-
-$ch = curl_init($endpoint);
+$ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
 curl_setopt_array($ch, [
     CURLOPT_POST           => true,
-    CURLOPT_POSTFIELDS     => $payload,
-    CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+    CURLOPT_POSTFIELDS     => http_build_query([
+        'secret'   => $RECAPTCHA_SECRET_KEY,
+        'response' => $token,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+    ]),
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 10,
 ]);
@@ -86,12 +74,12 @@ if ($httpCode !== 200 || !$response) {
     json_response(502, ['ok' => false, 'error' => 'No se pudo verificar el captcha']);
 }
 
-$result = json_decode($response, true);
-$valid  = $result['tokenProperties']['valid'] ?? false;
-$action = $result['tokenProperties']['action'] ?? '';
-$score  = $result['riskAnalysis']['score'] ?? 0;
+$result  = json_decode($response, true);
+$success = $result['success'] ?? false;
+$action  = $result['action']  ?? '';
+$score   = $result['score']   ?? 0;
 
-if (!$valid || $action !== $RECAPTCHA_ACTION || $score < $RECAPTCHA_MIN_SCORE) {
+if (!$success || $action !== $RECAPTCHA_ACTION || $score < $RECAPTCHA_MIN_SCORE) {
     error_log('reCAPTCHA rechazado: ' . $response);
     json_response(403, ['ok' => false, 'error' => 'Verificación de seguridad fallida']);
 }
