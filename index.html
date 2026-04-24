@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Marketing | Agencia de Publicidad en Manzanillo</title>
+    <meta name="description"
+        content="Guru Marketing es la agencia de publicidad digital líder en Manzanillo. Expertos en Branding, Redes Sociales, Diseño Web, Producción Audiovisual e Invitaciones Digitales. - Agencia de Publicidad Manzanillo">
+    <meta name="keywords"
+        content="Agencia de Publicidad Manzanillo, Marketing Digital, Diseño Web Manzanillo, Branding, Redes Sociales, PWA, Invitaciones Digitales">
+    <meta name="author" content="Guru Marketing">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gurumkt.com.mx/">
+    <meta property="og:title" content="Guru Marketing | Agencia de Publicidad en Manzanillo">
+    <meta property="og:description"
+        content="Elevamos tu marca con estrategias digitales de alto impacto. Diseño Web, Branding y Marketing en Manzanillo.">
+    <meta property="og:image" content="https://gurumkt.com.mx/logo.webp">
+
+    <!-- Tailwind CSS (Local) -->
+    <link rel="stylesheet" href="final.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome (Deferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- AOS Animation Library (Deferred) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+
+    <!-- Stripe JS: se carga dinámicamente en payment.js al abrir el modal -->
+
+    <!-- JSON-LD Schema -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Guru Marketing",
+      "image": "https://gurumkt.com.mx/logo.webp",
+      "@id": "https://gurumkt.com.mx",
+      "url": "https://gurumkt.com.mx",
+      "telephone": "+523141234567",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Audiencia 123",
+        "addressLocality": "Manzanillo",
+        "addressRegion": "Colima",
+        "postalCode": "28200",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.116667,
+        "longitude": -104.333333
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/GuruMarketingZlo",
+        "https://www.instagram.com/gurumktzlo/",
+        "https://www.youtube.com/@gurumarketing2532"
+      ]
+    }
+    </script>
+    <link rel="icon" href="img/logo-normAsset%202.png">
+
+    <!-- Meta Pixel: movido a </body> para no bloquear el render -->
+
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">GURU</span>
+                MARKETING
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="hover:text-blue-400 transition-colors">Inicio</a>
+                <a href="#services" class="hover:text-blue-400 transition-colors">Servicios</a>
+                <a href="#portfolio" class="hover:text-blue-400 transition-colors">Portafolio</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Contacto</a>
+                <a href="noticias.html" class="hover:text-blue-400 transition-colors">Noticias</a>
+            </div>
+            <a href="#contact"
+                class="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-medium hover:scale-105 transition-transform shadow-lg shadow-purple-500/20">
+                Inicia tu Proyecto
+            </a>
+            <!-- Mobile Menu Button -->
+            <button
+                class="md:hidden text-2xl focus:outline-none p-4 min-w-[48px] min-h-[48px] flex items-center justify-center"
+                id="mobile-menu-btn" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-gray-900/95 backdrop-blur-md absolute w-full left-0 top-full border-t border-gray-800"
+            id="mobile-menu">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#hero" class="block hover:text-blue-400">Inicio</a>
+                <a href="#services" class="block hover:text-blue-400">Servicios</a>
+                <a href="#portfolio" class="block hover:text-blue-400">Portafolio</a>
+                <a href="#contact" class="block hover:text-blue-400">Contacto</a>
+                <a href="noticias.html" class="block hover:text-blue-400">Noticias</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Particles Background -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+        <!-- Gradient Overlay -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900 z-0 pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Guru Logo -->
+                <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo"
+                    class="h-32 md:h-48 mx-auto mb-8 animate-float drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+
+                <h1
+                    class="text-5xl md:text-7xl font-bold mb-4 animate-slide-up bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-lg">
+                    Agencia de Publicidad
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in delay-100 max-w-2xl mx-auto">
+                    Tu Agencia de Publicidad en Manzanillo. Estrategias digitales, diseño innovador y resultados reales.
+                </h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#contact"
+                        class="px-8 py-4 bg-white text-gray-900 rounded-full font-bold hover:bg-gray-100 transform hover:-translate-y-1 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        Inicia tu Proyecto
+                    </a>
+                    <a href="#portfolio"
+                        class="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-sm rounded-full font-bold hover:bg-white/10 transition-all">
+                        Ver Portafolio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/50 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-[10px] md:py-20 relative z-10 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Más que una agencia, <br><span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">somos tus
+                            aliados.</span></h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Somos una empresa orgullosamente <strong>Manzanillense con más de 25 años de
+                            experiencia</strong> en el mundo del marketing y la publicidad. Hemos evolucionado junto con
+                        la tecnología para ofrecer soluciones integrales que realmente funcionan.
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-400">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Diseño
+                            Editorial Experto</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Manejo de
+                            Campañas Políticas</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Creación de
+                            Contenidos</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            Comunicación Institucional</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Branding
+                            Corporativo</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Producción
+                            de Video</li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="glass-card p-1 rounded-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Agencia de Publicidad en Manzanillo" class="rounded-xl w-full">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clients Carousel -->
+            <div class="text-center mb-10" data-aos="fade-up">
+                <p class="text-sm font-bold tracking-widest text-gray-500 uppercase mb-8">Marcas que confían en nosotros
+                </p>
+                <div class="slider relative overflow-hidden h-48 bg-white/10 rounded-xl flex items-center">
+                    <div class="slide-track flex w-[calc(312px*24)]">
+                        <!-- Logos (Doubled for infinite scroll) -->
+
+                        <!-- Set 1 (12 logos) -->
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/api.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/gobienro-manzanillo.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo">
+                        </div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/coldwell.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/congreso.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/liuna.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/pulse.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/ramcon.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/romo.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/woodward.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/taxa.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/tap.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/uroavanz.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+
+                        <!-- Set 2 (Duplicate) -->
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/api.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/gobienro-manzanillo.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo">
+                        </div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/coldwell.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/congreso.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/liuna.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/pulse.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/ramcon.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/romo.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/woodward.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/taxa.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/tap.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                        <div class="slide flex items-center justify-center w-[280px] mx-4"><img
+                                src="img/Logos Clientes/uroavanz.webp" class="logo-carousel"
+                                alt="Agencia de Publicidad en Manzanillo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-[10px] md:py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Nuestros Servicios</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards will go here (Static for now to establish structure) -->
+                <!-- Marketing -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='marketing.html'">
+                    <div
+                        class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-bullhorn text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">Marketing Digital
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Estrategias integrales para redes sociales, campañas
+                        ADS y
+                        crecimiento orgánico que conectan con tu audiencia.</p>
+                    <span class="text-blue-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- Branding -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='branding.html'">
+                    <div
+                        class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-pen-nib text-3xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">Branding & Diseño
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Creación de identidad corporativa, logotipos y
+                        manuales de
+                        marca que transmiten la esencia de tu negocio.</p>
+                    <span class="text-purple-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- Web Design -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='web-design.html'">
+                    <div
+                        class="w-16 h-16 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-laptop-code text-3xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition-colors">Diseño Web & Apps
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Sitios web modernos, rápidos y responsivos. Desarrollo
+                        de
+                        aplicaciones a medida y tiendas en línea.</p>
+                    <span class="text-pink-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- Editorial -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='editorial.html'">
+                    <div
+                        class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-book-open text-3xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition-colors">Diseño Editorial
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Maquetación profesional de revistas, catálogos, menús
+                        y
+                        folletos listos para impresión.</p>
+                    <span class="text-orange-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- Audiovisual -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='audiovisual.html'">
+                    <div
+                        class="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-video text-3xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Producción
+                        Audiovisual</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Video corporativo, fotografía profesional y tomas
+                        aéreas
+                        con dron para darle una perspectiva única a tu marca.</p>
+                    <span class="text-yellow-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- SEO -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5"
+                    data-aos="fade-up" data-aos-delay="600" onclick="window.location.href='seo.html'">
+                    <div
+                        class="w-16 h-16 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-search-dollar text-3xl text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">Posicionamiento
+                        SEO</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Optimización para motores de búsqueda que coloca a tu
+                        negocio en los primeros lugares de Google.</p>
+                    <span class="text-indigo-400 text-sm font-bold flex items-center group-hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+
+                <!-- Invitaciones -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-white/5 md:col-span-2 lg:col-span-3 xl:col-span-1"
+                    data-aos="fade-up" data-aos-delay="700" onclick="window.location.href='invitaciones.html'">
+                    <div
+                        class="w-16 h-16 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-envelope-open-text text-3xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition-colors">Invitaciones
+                        Digitales</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">Diseños interactivos e inteligentes para Bodas, XV
+                        Años
+                        y Eventos. Confirma asistencia al instante.</p>
+                    <span class="text-pink-400 text-sm font-bold flex items-center group-hover:underline">
+                        Ver Paquetes <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-[10px] md:py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Nuestro Trabajo</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-8"></div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12" id="portfolio-filters">
+                    <button
+                        class="filter-btn active px-6 py-2 rounded-full bg-white text-black transition-all text-sm font-medium"
+                        data-filter="web">Web</button>
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all text-sm font-medium"
+                        data-filter="video">Video</button>
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all text-sm font-medium"
+                        data-filter="foto">Foto</button>
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all text-sm font-medium"
+                        data-filter="editorial">Editorial</button>
+                </div>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                <!-- Portfolio Items (Placeholders) -->
+
+                <!-- Video Items -->
+
+                <!-- Video 1 (Featured) -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" onclick="openModal('https://www.youtube.com/embed/ObZzgdp5UHA')">
+                    <img src="https://img.youtube.com/vi/ObZzgdp5UHA/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                            <p class="text-blue-400 text-sm">Ver Video</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/Fk8N4Nlufyc')">
+                    <img src="https://img.youtube.com/vi/Fk8N4Nlufyc/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/oQlGkMZ2RzU')">
+                    <img src="https://img.youtube.com/vi/oQlGkMZ2RzU/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/nJ9Aj6E0csg')">
+                    <img src="https://img.youtube.com/vi/nJ9Aj6E0csg/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/OnAzu4IT6l0')">
+                    <img src="https://img.youtube.com/vi/OnAzu4IT6l0/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/K-Wz9x1NDf4')">
+                    <img src="https://img.youtube.com/vi/K-Wz9x1NDf4/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 7 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/1nneI9UDuzM')">
+                    <img src="https://img.youtube.com/vi/1nneI9UDuzM/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 8 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/lfODoMT9-qo')">
+                    <img src="https://img.youtube.com/vi/lfODoMT9-qo/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 9 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/-C5LCgSjzlQ')">
+                    <img src="https://img.youtube.com/vi/-C5LCgSjzlQ/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 10 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/3toHsy4oa2M')">
+                    <img src="https://img.youtube.com/vi/3toHsy4oa2M/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 11 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="video" data-hide-on-all="true"
+                    onclick="openModal('https://www.youtube.com/embed/qr-rbzw2nNE')">
+                    <img src="https://img.youtube.com/vi/qr-rbzw2nNE/sddefault.jpg"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-play-circle text-5xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Producción Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Projects -->
+
+                <!-- Coldwell Banker -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" onclick="window.open('https://www.coldwellbankercolimar.com.mx', '_blank')">
+                    <img src="img/Sitios Web/coldwellbankercolimar.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Coldwell Banker</p>
+                            <p class="text-blue-400 text-sm">Bienes Raíces</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comrom -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true"
+                    onclick="window.open('https://www.comrom.com.mx', '_blank')">
+                    <img src="img/Sitios Web/comrom.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Comrom</p>
+                            <p class="text-blue-400 text-sm">Soluciones Tecnológicas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Noah Tours -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true"
+                    onclick="window.open('https://noahtoursmanzanillo.com', '_blank')">
+                    <img src="img/Sitios Web/nohatours.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Noah Tours</p>
+                            <p class="text-blue-400 text-sm">Turismo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transvla -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true" onclick="window.open('https://transvla.com', '_blank')">
+                    <img src="img/Sitios Web/transvla.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Transvla</p>
+                            <p class="text-blue-400 text-sm">Logística</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GCB -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true" onclick="window.open('https://gcb.mx', '_blank')">
+                    <img src="img/Sitios Web/gcb.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">GCB</p>
+                            <p class="text-blue-400 text-sm">Gestión Aduanal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramcon -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true" onclick="window.open('https://ramconco.com', '_blank')">
+                    <img src="img/Sitios Web/ramcon.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Ramcon</p>
+                            <p class="text-blue-400 text-sm">Construcción</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLIM -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true"
+                    onclick="window.open('https://grupologisticoplim.com.mx', '_blank')">
+                    <img src="img/Sitios Web/grupologisticoplim.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Grupo PLIM</p>
+                            <p class="text-blue-400 text-sm">Transporte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nuestras Noticias -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true"
+                    onclick="window.open('https://www.nuestrasnoticias.info', '_blank')">
+                    <img src="img/Sitios Web/Nuestras Noticias.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Nuestras Noticias</p>
+                            <p class="text-blue-400 text-sm">Noticias</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taxa -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="web" data-hide-on-all="true" onclick="window.open('https://taxa.mx', '_blank')">
+                    <img src="img/Sitios Web/taxa .webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-external-link-alt text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Taxa</p>
+                            <p class="text-blue-400 text-sm">Servicios</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto Item 1 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="foto">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-camera text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold">Sesión Corporativa</p>
+                            <p class="text-blue-400 text-sm">Fotografía</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Editorial Item 1 (Featured) -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="editorial" onclick="window.open('https://anyflip.com/bptbz/pxkf/', '_blank')">
+                    <img src="img/Editorial/cover1.webp" alt="Agencia de Publicidad en Manzanillo" width="600"
+                        height="338" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-book-open text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Catálogo Digital</p>
+                            <p class="text-blue-400 text-sm">Ver Publicación</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Item 2 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="editorial" data-hide-on-all="true"
+                    onclick="window.open('https://anyflip.com/bptbz/vlhy/', '_blank')">
+                    <img src="img/Editorial/cover2.webp" alt="Agencia de Publicidad en Manzanillo" width="600"
+                        height="338" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-book-open text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Revista Corporativa</p>
+                            <p class="text-blue-400 text-sm">Ver Publicación</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Item 3 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="editorial" data-hide-on-all="true"
+                    onclick="window.open('https://anyflip.com/bptbz/mbqx/', '_blank')">
+                    <img src="img/Editorial/cover3.webp" alt="Agencia de Publicidad en Manzanillo" width="600"
+                        height="338" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-book-open text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Brochure Empresarial</p>
+                            <p class="text-blue-400 text-sm">Ver Publicación</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Item 4 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="editorial" data-hide-on-all="true"
+                    onclick="window.open('https://anyflip.com/bptbz/wddx/', '_blank')">
+                    <img src="img/Editorial/cover4.webp" alt="Agencia de Publicidad en Manzanillo" width="600"
+                        height="338" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-book-open text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Libro de Marca</p>
+                            <p class="text-blue-400 text-sm">Ver Publicación</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Item 5 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-video cursor-pointer"
+                    data-category="editorial" data-hide-on-all="true"
+                    onclick="window.open('https://anyflip.com/bptbz/pfrj/', '_blank')">
+                    <img src="img/Editorial/cover5.webp" alt="Agencia de Publicidad en Manzanillo" width="600"
+                        height="338" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i
+                                class="fas fa-book-open text-4xl text-white mb-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"></i>
+                            <p class="text-white font-bold text-xl">Reporte Anual</p>
+                            <p class="text-blue-400 text-sm">Ver Publicación</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-[10px] md:py-20 relative">
+        <div class="container mx-auto px-6">
+            <div
+                class="flex flex-col lg:flex-row gap-12 bg-gray-800/50 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+
+                <!-- Contact Info (Left) -->
+                <div class="lg:w-1/3 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Iniciemos algo <br><span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Extraordinario</span>
+                        </h2>
+                        <p class="text-gray-400 mb-8">Cuéntanos sobre tu proyecto. Estamos listos para elevar tu marca
+                            al siguiente nivel.</p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Llámanos</p>
+                                    <p class="font-bold text-lg">314 146 1520</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Visítanos</p>
+                                    <p class="font-bold">Manzanillo, Colima, MX</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Escríbenos</p>
+                                    <p class="font-bold">a.garcia@gurumkt.com.mx</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pink-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Right) -->
+                <div class="lg:w-2/3">
+                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/a.garcia@gurumkt.com.mx"
+                        method="POST">
+                        <!-- Configuration -->
+                        <input type="hidden" name="_subject" value="Nuevo Mensaje de Sitio Web Guru Marketing">
+                        <input type="hidden" name="_next" value="https://gurumkt.com.mx/index.html">
+                        <input type="text" name="_honey" style="display:none">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Nombre</label>
+                                <input type="text" name="nombre" required
+                                    class="w-full bg-gray-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600"
+                                    placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Teléfono</label>
+                                <input type="tel" name="telefono" required
+                                    class="w-full bg-gray-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600"
+                                    placeholder="314...">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Correo Electrónico</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-gray-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600"
+                                placeholder="tu@correo.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Servicio de Interés</label>
+                            <select name="servicio"
+                                class="w-full bg-gray-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-300">
+                                <option>Marketing Digital</option>
+                                <option>Diseño Web</option>
+                                <option>Branding</option>
+                                <option>Producción Audiovisual</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="mb-4">
+                            <textarea name="mensaje" placeholder="Mensaje" rows="4"
+                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+                        </div>
+                        <div class="mb-6 flex items-start gap-3">
+                            <input type="checkbox" id="privacy-check" required
+                                class="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <label for="privacy-check" class="text-xs text-gray-400">
+                                He leído y acepto el <a href="aviso-privacidad.html" target="_blank"
+                                    class="text-blue-400 hover:underline">Aviso de Privacidad</a> y el tratamiento de
+                                mis datos personales.
+                            </label>
+                        </div>
+
+                        <!-- reCAPTCHA Widget -->
+                        <div class="mb-6 flex justify-center md:justify-start">
+                            <div class="g-recaptcha" data-sitekey="6LdQKWIsAAAAAMDlgf04n7GNEtI1lnvI3IxPNdHN"
+                                data-callback="enableSubmit"></div>
+                        </div>
+
+                        <button id="submitBtn" disabled
+                            class="w-full bg-gray-600 text-gray-300 font-bold py-4 rounded-lg cursor-not-allowed transition-all">
+                            Completa el Captcha para enviar <i class="fas fa-lock ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="h-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-xl font-bold text-gray-500">Guru Mkt</span>
+                </div>
+                <!-- Social Links -->
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com" target="_blank"
+                        class="text-gray-400 hover:text-blue-500 transition-colors text-xl"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"
+                        class="text-gray-400 hover:text-pink-500 transition-colors text-xl"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UC_ilu6yAwntLTIANy8DFjeQ" target="_blank"
+                        class="text-gray-400 hover:text-red-600 transition-colors text-xl"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Guru Marketing. Todos los derechos reservados.</p>
+                <div class="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center md:justify-end">
+                    <a href="marketing.html" class="hover:text-white transition-colors">Marketing</a>
+                    <a href="branding.html" class="hover:text-white transition-colors">Branding</a>
+                    <a href="web-design.html" class="hover:text-white transition-colors">Diseño Web</a>
+                    <a href="editorial.html" class="hover:text-white transition-colors">Diseño Editorial</a>
+                    <a href="audiovisual.html" class="hover:text-white transition-colors">Producción Audiovisual</a>
+                    <a href="seo.html" class="hover:text-white transition-colors">SEO</a>
+                    <a href="invitaciones.html" class="hover:text-white transition-colors">Invitaciones Digitales</a>
+                    <a href="noticias.html" class="hover:text-white transition-colors">Noticias</a>
+                    <a href="aviso-privacidad.html" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-xs text-gray-700">
+                <p>Designed By <span class="text-blue-900 font-bold">Guru Mkt</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal"
+        class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/90 backdrop-blur-sm"
+        onclick="closeModal()">
+        <div class="relative w-full max-w-4xl aspect-video mx-4" onclick="event.stopPropagation()">
+            <button class="absolute -top-10 right-0 text-white hover:text-red-500 text-3xl"
+                onclick="closeModal()">&times;</button>
+            <iframe id="videoFrame" class="w-full h-full rounded-lg" src="" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="serviceModal"
+        class="fixed inset-0 z-[70] hidden flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 transition-all duration-300">
+        <div
+            class="glass-card p-8 rounded-3xl w-full max-w-lg relative border border-white/10 shadow-2xl transform scale-100 transition-transform duration-300">
+            <!-- Close Button -->
+            <button onclick="closeServiceModal()"
+                class="absolute top-4 right-4 text-white/50 hover:text-white transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i id="serviceIcon" class="fas fa-bullhorn text-4xl text-blue-400"></i>
+                </div>
+                <h3 id="serviceTitle" class="text-3xl font-bold mb-6 text-white">Titulo del Servicio</h3>
+
+                <div class="bg-white/5 rounded-2xl p-6 mb-8 text-left">
+                    <ul id="serviceList" class="space-y-3 text-gray-300">
+                        <!-- Items injected via JS -->
+                    </ul>
+                </div>
+
+                <div class="border-t border-white/10 pt-6">
+                    <p class="text-gray-400 text-sm mb-2">Inversión estimada</p>
+                    <p id="servicePrice" class="text-3xl font-bold text-blue-400">$0,000</p>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button
+                        onclick="closeServiceModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+                        class="flex-1 py-4 border border-white/20 rounded-xl font-bold hover:bg-white/5 transition-all">
+                        Cotizar
+                    </button>
+                    <button onclick="closeServiceModal(); loadPayment(3500)"
+                        class="flex-1 py-4 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl font-bold hover:shadow-lg hover:shadow-green-500/30 transition-all transform hover:-translate-y-1">
+                        Pagar Ahora <i class="fas fa-credit-card ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal (Stripe) -->
+    <div id="paymentModal"
+        class="fixed inset-0 z-[80] hidden flex items-center justify-center bg-black/95 backdrop-blur-md p-4 transition-all duration-300">
+        <div class="glass-card p-8 rounded-3xl w-full max-w-md relative border border-white/10 shadow-2xl">
+            <button onclick="closePaymentModal()"
+                class="absolute top-4 right-4 text-white/50 hover:text-white transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-white mb-2">Pago Seguro</h3>
+                <p class="text-gray-400 text-sm">Tarjetas de Crédito y Débito</p>
+            </div>
+
+            <!-- Stripe Element Container -->
+            <form id="payment-form">
+                <div id="payment-element" class="mb-6 min-h-[200px]">
+                    <!-- Stripe injects iframe here -->
+                </div>
+
+                <div class="mb-4 flex items-start gap-2">
+                    <input type="checkbox" id="termsCheck"
+                        class="mt-1 w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500 ring-offset-gray-800">
+                    <label for="termsCheck" class="text-xs text-gray-400">
+                        Acepto los <a href="contrato-servicios.html" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 underline">Términos del Servicio</a>, plazos de
+                        entrega y políticas de uso.
+                    </label>
+                </div>
+
+                <button id="submitPay"
+                    class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-green-500/30 transition-all flex items-center justify-center gap-2">
+                    <span id="button-text">Pagar Ahora</span>
+                    <div id="spinner"
+                        class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full">
+                    </div>
+                </button>
+                <div id="payment-message" class="hidden mt-4 text-center text-red-400 text-sm"></div>
+            </form>
+
+            <div class="mt-6 text-center">
+                <div class="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all mb-2">
+                    <i class="fab fa-cc-visa text-2xl text-white"></i>
+                    <i class="fab fa-cc-mastercard text-2xl text-white"></i>
+                    <i class="fab fa-cc-amex text-2xl text-white"></i>
+                </div>
+                <p class="text-xs text-gray-500"><i class="fas fa-lock mr-1"></i> Procesado por <span
+                        class="font-bold text-gray-400">Stripe</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- particles.js eliminado: fondo animado reemplazado por CSS puro (styles.css) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <!-- payment.js: se carga dinámicamente al abrir el modal de pago -->
+    <script>
+        function loadPayment(amount) {
+            amount = amount || 3500;
+            if (window._paymentLoaded) { openPaymentModal(amount); return; }
+            var s = document.createElement('script');
+            s.src = 'payment.js';
+            s.onload = function () { window._paymentLoaded = true; openPaymentModal(amount); };
+            document.body.appendChild(s);
+        }
+    </script>
+
+    <!-- Meta Pixel Code (no bloqueante) -->
+    <script>
+        setTimeout(function () {
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1169052968437432');
+            fbq('track', 'PageView');
+        }, 0);
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <script>
+        function enableSubmit() {
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = false;
+            btn.classList.remove('bg-gray-600', 'text-gray-300', 'cursor-not-allowed');
+            btn.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white', 'hover:shadow-lg', 'hover:shadow-blue-500/30', 'hover:-translate-y-1');
+            btn.innerHTML = 'Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>';
+        }
+    </script>
+</body>
+
+</html>

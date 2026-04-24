@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Boda María & José - Invitación Digital</title>
+    <meta name="description" content="Invitación Digital de Boda Elegante. Agenda, Mapa y Confirmación de Asistencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .gold-filter {
+            filter: invert(79%) sepia(35%) saturate(497%) hue-rotate(357deg) brightness(101%) contrast(92%);
+        }
+    </style>
+    <link rel="icon" href="img/logo-normAsset%202.png">
+</head>
+
+<body class="bg-[#f9f7f2] font-body text-gray-700 overflow-x-hidden">
+
+    <!-- Audio Player (Floating) -->
+    <!-- Audio Player (Floating) -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="music-btn" onclick="toggleMusic()"
+            class="w-12 h-12 bg-white/80 backdrop-blur rounded-full shadow-lg flex items-center justify-center text-[#d4af37] animate-pulse">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="bg-music" loop>
+            <source src="img/parabodas/Bill Withers - Just The Two Of Us  (official video).mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Hero Section -->
+    <header
+        class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden bg-[url('boda-hero.webp')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="z-10 text-white px-6" data-aos="fade-up">
+            <p class="uppercase tracking-[0.3em] text-sm mb-4">Nuestra Boda</p>
+            <h1 class="font-script text-7xl md:text-9xl mb-4">María & José</h1>
+            <p class="font-serif text-xl italic mb-8">¡Nos Casamos!</p>
+            <div class="inline-block border-y-2 border-[#d4af37] py-4 px-8 mb-8 backdrop-blur-sm bg-white/10">
+                <p class="text-2xl md:text-3xl font-serif tracking-widest text-[#d4af37]">24 • OCT • 2026</p>
+                <p class="text-sm mt-1">2026 • MANZANILLO, COLIMA</p>
+            </div>
+
+            <button onclick="downloadICS()"
+                class="block mx-auto px-8 py-3 bg-[#d4af37]/90 text-white rounded-full font-serif text-sm tracking-widest hover:bg-[#b5952f] transition-all shadow-[0_0_15px_#d4af37] flex items-center gap-2 hover:scale-105">
+                <i class="far fa-calendar-alt"></i> AGENDAR FECHA
+            </button>
+        </div>
+        <div class="absolute bottom-10 animate-bounce text-white">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Countdown -->
+    <section class="py-16 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-3xl text-[#d4af37] mb-10">Faltan...</h2>
+            <div class="flex justify-center gap-4 md:gap-8 text-[#4a4a4a]">
+                <div class="flex flex-col"><span class="text-4xl md:text-5xl font-bold font-serif"
+                        id="days">00</span><span class="text-xs tracking-widest uppercase">Días</span></div>
+                <div class="text-3xl">:</div>
+                <div class="flex flex-col"><span class="text-4xl md:text-5xl font-bold font-serif"
+                        id="hours">00</span><span class="text-xs tracking-widest uppercase">Hrs</span></div>
+                <div class="text-3xl">:</div>
+                <div class="flex flex-col"><span class="text-4xl md:text-5xl font-bold font-serif"
+                        id="minutes">00</span><span class="text-xs tracking-widest uppercase">Min</span></div>
+                <div class="text-3xl">:</div>
+                <div class="flex flex-col"><span class="text-4xl md:text-5xl font-bold font-serif"
+                        id="seconds">00</span><span class="text-xs tracking-widest uppercase">Seg</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message -->
+    <section class="py-20 px-6 text-center max-w-2xl mx-auto">
+        <i class="fas fa-quote-left text-3xl text-[#d4af37] mb-6 opacity-50"></i>
+        <p class="font-serif text-xl md:text-2xl leading-relaxed text-gray-600 italic">
+            "El amor no es solo mirarse el uno al otro, es mirar juntos en la misma dirección. Queremos compartir la
+            alegría de unir nuestras vidas contigo."
+        </p>
+        <p class="mt-6 font-script text-3xl text-[#d4af37]">- Antoine de Saint-Exupéry</p>
+    </section>
+
+    <!-- Itinerary (Timeline) -->
+    <section class="py-16 bg-[#faf8f5]">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="font-serif text-3xl text-center text-[#d4af37] mb-12">Itinerario</h2>
+            <div
+                class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#d4af37] before:to-transparent">
+
+                <!-- Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                    data-aos="fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#d4af37] bg-white text-[#d4af37] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                        <div class="font-bold text-[#d4af37] mb-1">5:00 PM</div>
+                        <h3 class="font-serif text-xl text-gray-800">Ceremonia Religiosa</h3>
+                        <p class="text-gray-500 text-sm mt-2">Parroquia de Nuestra Señora de Guadalupe</p>
+                        <a href="https://goo.gl/maps/example" target="_blank"
+                            class="inline-block mt-3 text-xs uppercase tracking-wider border-b border-[#d4af37] pb-1 text-[#d4af37]">Ver
+                            Ubicación</a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                    data-aos="fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#d4af37] bg-white text-[#d4af37] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                        <div class="font-bold text-[#d4af37] mb-1">7:00 PM</div>
+                        <h3 class="font-serif text-xl text-gray-800">Recepción & Coctel</h3>
+                        <p class="text-gray-500 text-sm mt-2">Salón "Las Palmas", Manzanillo</p>
+                        <a href="https://goo.gl/maps/example" target="_blank"
+                            class="inline-block mt-3 text-xs uppercase tracking-wider border-b border-[#d4af37] pb-1 text-[#d4af37]">Ver
+                            Ubicación</a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                    data-aos="fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#d4af37] bg-white text-[#d4af37] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                        <div class="font-bold text-[#d4af37] mb-1">8:30 PM</div>
+                        <h3 class="font-serif text-xl text-gray-800">Cena Formal</h3>
+                        <p class="text-gray-500 text-sm mt-2">Código de vestimenta: Etiqueta Rigurosa</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Dress Code -->
+                <div class="text-center p-8 bg-[#faf8f5] rounded-lg" data-aos="fade-up">
+                    <i class="fas fa-tshirt text-4xl text-[#d4af37] mb-4"></i>
+                    <h3 class="font-serif text-xl mb-2">Código de Vestimenta</h3>
+                    <p class="text-gray-600">Formal / Etiqueta</p>
+                    <p class="text-xs text-gray-400 mt-2">Ellas: Vestido Largo • Ellos: Traje Obscuro</p>
+                </div>
+                <!-- Accomodation -->
+                <div class="text-center p-8 bg-[#faf8f5] rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-hotel text-4xl text-[#d4af37] mb-4"></i>
+                    <h3 class="font-serif text-xl mb-2">Hospedaje Sugerido</h3>
+                    <p class="text-gray-600">Hotel Tesoro Manzanillo</p>
+                    <a href="#" class="text-xs text-[#d4af37] underline mt-2 block">Ver Tarifa Especial Boda</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Table -->
+    <section class="py-16 bg-[#faf8f5] text-center">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <i class="fas fa-gift text-5xl text-[#d4af37] mb-6 animate-bounce"></i>
+            <h2 class="font-serif text-3xl text-gray-800 mb-6">Mesa de Regalos</h2>
+            <p class="text-gray-600 mb-8">Su presencia es nuestro mejor regalo, pero si desean tener un detalle con
+                nosotros:</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#"
+                    class="px-8 py-3 bg-black text-white rounded-full text-sm font-bold tracking-wider hover:bg-[#333] transition-colors"><i
+                        class="fab fa-amazon mr-2"></i> Amazon</a>
+                <a href="#"
+                    class="px-8 py-3 bg-[#d4af37] text-white rounded-full text-sm font-bold tracking-wider hover:bg-[#b5952f] transition-colors"><i
+                        class="fas fa-store mr-2"></i> Liverpool</a>
+            </div>
+            <div class="mt-8 p-6 bg-white rounded-lg shadow-sm">
+                <p class="text-sm font-bold text-gray-800">O transferencia bancaria:</p>
+                <p class="text-gray-500 mt-2 font-mono text-sm">BBVA: 1234 5678 9012 3456</p>
+                <p class="text-xs text-gray-400 mt-1">A nombre de: José Pérez</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Masonry -->
+    <section class="py-16 bg-white px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-serif text-3xl text-center text-[#d4af37] mb-12">Nuestra Historia</h2>
+            <div class="columns-1 md:columns-2 gap-4 space-y-4">
+                <div class="break-inside-avoid relative group overflow-hidden rounded-xl" data-aos="fade-up">
+                    <img src="img/boda-gallery-1.webp"
+                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" alt="Agencia de Publicidad en Manzanillo">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="break-inside-avoid relative group overflow-hidden rounded-xl" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="img/boda-gallery-2.webp"
+                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" alt="Agencia de Publicidad en Manzanillo">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="break-inside-avoid relative group overflow-hidden rounded-xl" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="img/boda-gallery-3.webp"
+                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" alt="Agencia de Publicidad en Manzanillo">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <!-- Adding a quote block to balance the masonry -->
+                <div class="break-inside-avoid p-6 bg-[#faf8f5] rounded-xl text-center border border-[#d4af37]/20 flex flex-col justify-center items-center h-full min-h-[200px]"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-heart text-2xl text-[#d4af37] mb-3"></i>
+                    <p class="font-serif italic text-gray-600">"Cada momento contigo es un recuerdo eterno."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guestbook (Messages) -->
+    <section class="py-16 bg-[#faf8f5] px-6 text-center">
+        <div class="container mx-auto max-w-xl">
+            <i class="fas fa-pen-fancy text-3xl text-[#d4af37] mb-6"></i>
+            <h2 class="font-serif text-3xl text-gray-800 mb-4">Déjanos un Mensaje</h2>
+            <p class="text-gray-500 mb-8">Escribe tus buenos deseos y envíanoslos directamente.</p>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-[#d4af37]/20" data-aos="fade-up">
+                <input type="text" id="guest-name"
+                    class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:border-[#d4af37] text-gray-600 mb-4"
+                    placeholder="Tu Nombre">
+                <textarea id="guest-message" rows="4"
+                    class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:border-[#d4af37] resize-none text-gray-600 mb-4"
+                    placeholder="Escribe tu felicitación aquí..."></textarea>
+                <button onclick="sendMessage()"
+                    class="w-full py-3 bg-[#d4af37] text-white font-bold rounded-lg hover:bg-[#b5952f] transition-colors shadow-lg shadow-[#d4af37]/30">
+                    <i class="fab fa-whatsapp mr-2"></i> Enviar a los Novios
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Hashtag -->
+    <section class="py-12 bg-[#262626] text-white text-center">
+        <p class="text-sm uppercase tracking-widest mb-2">Comparte tus fotos</p>
+        <h2 class="font-serif text-3xl">#BodaMariayJose</h2>
+        <a href="https://instagram.com" class="inline-block mt-4 text-[#d4af37] hover:text-white transition-colors"><i
+                class="fab fa-instagram"></i> Ver en Instagram</a>
+    </section>
+
+    <!-- RSVP Floating Action -->
+    <div
+        class="fixed bottom-0 w-full bg-white border-t border-gray-200 p-4 pb-6 z-40 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+        <div class="container mx-auto max-w-md flex gap-4">
+            <button onclick="window.close();"
+                class="flex-1 py-3 rounded-lg border border-gray-300 text-gray-600 font-bold text-sm">
+                Cerrar
+            </button>
+            <a href="https://wa.me/523141234567?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20María%20y%20José."
+                target="_blank"
+                class="flex-1 py-3 rounded-lg bg-[#d4af37] text-white font-bold text-sm text-center shadow-lg hover:bg-[#b5952f] transition-colors">
+                Confirmar Asistencia
+            </a>
+        </div>
+    </div>
+
+    <!-- Padding for bottom fixed bar -->
+    <div class="h-24"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Music Toggle
+        // ... existing music toggle code ...
+
+        // Calendar Function
+        function downloadICS() {
+            const event = {
+                title: "Boda Sofía & Mateo",
+                start: "20261024T180000",
+                end: "20261025T020000",
+                location: "Hacienda San Gabriel",
+                description: "¡Los esperamos para celebrar nuestra boda!"
+            };
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:${event.start}
+DTEND:${event.end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'boda-sofia-mateo.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        const audio = document.getElementById('bg-music');
+        let isPlaying = false;
+
+        // Try Autoplay on Load
+        window.addEventListener('load', function () {
+            var promise = audio.play();
+            if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                    isPlaying = true;
+                    document.getElementById('music-btn').classList.add('animate-spin');
+                }).catch(error => {
+                    // Autoplay was prevented. Wait for interaction.
+                    console.log("Autoplay blocked. Waiting for interaction.");
+                    document.body.addEventListener('click', function () {
+                        if (!isPlaying) {
+                            audio.play();
+                            isPlaying = true;
+                            document.getElementById('music-btn').classList.add('animate-spin');
+                        }
+                    }, { once: true });
+                });
+            }
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('music-btn').classList.remove('animate-spin');
+            } else {
+                audio.play();
+                document.getElementById('music-btn').classList.add('animate-spin');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Countdown Script
+        const weddingDate = new Date('October 25, 2026 17:00:00').getTime();
+        const interval = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerText = "¡Llegó el día!";
+            }
+        }, 1000);
+
+        function sendMessage() {
+            const name = document.getElementById('guest-name').value;
+            const message = document.getElementById('guest-message').value;
+
+            if (!name.trim()) {
+                alert("Por favor escribe tu nombre.");
+                return;
+            }
+            if (!message.trim()) {
+                alert("Por favor escribe un mensaje.");
+                return;
+            }
+
+            const encodedMessage = encodeURIComponent(`¡Hola! Soy ${name}. Les dejo este mensaje: ${message}`);
+            window.open(`https://wa.me/523141234567?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+
+</html>

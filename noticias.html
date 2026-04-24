@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Guru Marketing</title>
+    <meta name="description"
+        content="Mantente al día con las últimas noticias, tendencias y estrategias de marketing digital, diseño web y publicidad en Manzanillo con Guru Marketing. - Agencia de Publicidad Manzanillo">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gurumkt.com.mx/noticias.html">
+    <meta property="og:title" content="Noticias | Guru Marketing">
+    <meta property="og:description"
+        content="Descubre las últimas tendencias en marketing digital y publicidad para tu negocio.">
+    <meta property="og:image" content="https://gurumkt.com.mx/logo.webp">
+
+    <link rel="stylesheet" href="final.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Custom styles for the article content */
+        .article-content h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #e5e7eb;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .article-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            color: #d1d5db;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content strong {
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+    <link rel="icon" href="img/logo-normAsset%202.png">
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1169052968437432');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1"
+/></noscript>
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden font-sans">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">GURU</span>
+                MARKETING
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#hero" class="hover:text-blue-400 transition-colors">Inicio</a>
+                <a href="index.html#services" class="hover:text-blue-400 transition-colors">Servicios</a>
+                <a href="index.html#portfolio" class="hover:text-blue-400 transition-colors">Portafolio</a>
+                <a href="index.html#contact" class="hover:text-blue-400 transition-colors">Contacto</a>
+                <a href="noticias.html" class="hover:text-blue-400 transition-colors">Noticias</a>
+            </div>
+            <a href="index.html#contact"
+                class="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-medium hover:scale-105 transition-transform shadow-lg shadow-purple-500/20">
+                Inicia tu Proyecto
+            </a>
+            <button
+                class="md:hidden text-2xl focus:outline-none p-4 min-w-[48px] min-h-[48px] flex items-center justify-center"
+                id="mobile-menu-btn" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-gray-900/95 backdrop-blur-md absolute w-full left-0 top-full border-t border-gray-800"
+            id="mobile-menu">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="index.html#hero" class="block hover:text-blue-400">Inicio</a>
+                <a href="index.html#services" class="block hover:text-blue-400">Servicios</a>
+                <a href="index.html#portfolio" class="block hover:text-blue-400">Portafolio</a>
+                <a href="index.html#contact" class="block hover:text-blue-400">Contacto</a>
+                <a href="noticias.html" class="block hover:text-blue-400">Noticias</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pb-24 overflow-hidden" style="padding-top: 125px;">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-gray-900 z-0"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo"
+                class="h-24 md:h-32 mx-auto mb-12 animate-float drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+
+            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-none">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-2xl">
+                    GURU NOTICIAS
+                </span>
+            </h1>
+            <div class="w-48 h-2 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto rounded-full mb-12"></div>
+
+            <p class="text-xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+                Estrategias digitales, tendencias innovadoras y todo lo que necesitas saber para <span
+                    class="text-blue-400 font-bold">dominar tu mercado</span>.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 relative z-10 min-h-screen">
+
+        <div id="loading" class="flex justify-center items-center py-20">
+            <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+
+        <div id="news-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            </div>
+
+        <div id="article-view" class="hidden max-w-4xl mx-auto">
+            <button onclick="showGrid()"
+                class="mb-8 flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Volver a Noticias
+            </button>
+
+            <article class="glass-card p-8 md:p-12 rounded-3xl border border-white/5 bg-gray-900/50 backdrop-blur-xl">
+                <div id="article-image-container" class="w-full h-64 md:h-96 rounded-2xl overflow-hidden mb-8 hidden">
+                    <img id="article-image" src="" alt="Agencia de Publicidad en Manzanillo" class="w-full h-full object-cover">
+                </div>
+
+                <div id="article-content" class="article-content text-lg text-gray-300 leading-relaxed">
+                    </div>
+            </article>
+        </div>
+
+    </main>
+
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="h-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-xl font-bold text-gray-500">Guru Mkt</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com" target="_blank"
+                        class="text-gray-400 hover:text-blue-500 transition-colors text-xl"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"
+                        class="text-gray-400 hover:text-pink-500 transition-colors text-xl"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UC_ilu6yAwntLTIANy8DFjeQ" target="_blank"
+                        class="text-gray-400 hover:text-red-600 transition-colors text-xl"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Guru Marketing. Todos los derechos reservados.</p>
+                <div class="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center md:justify-end">
+                    <a href="marketing.html" class="hover:text-white transition-colors">Marketing</a>
+                    <a href="branding.html" class="hover:text-white transition-colors">Branding</a>
+                    <a href="web-design.html" class="hover:text-white transition-colors">Diseño Web</a>
+                    <a href="editorial.html" class="hover:text-white transition-colors">Diseño Editorial</a>
+                    <a href="audiovisual.html" class="hover:text-white transition-colors">Producción Audiovisual</a>
+                    <a href="seo.html" class="hover:text-white transition-colors">SEO</a>
+                    <a href="invitaciones.html" class="hover:text-white transition-colors">Invitaciones Digitales</a>
+                    <a href="noticias.html" class="hover:text-white transition-colors">Noticias</a>
+                    <a href="aviso-privacidad.html" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-xs text-gray-700">
+                <p>Designed By <span class="text-blue-900 font-bold">Guru Mkt</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = "https://seo.app.gurumkt.com.mx/api/v1/widget/4227daf1-2c67-4541-a537-00cdb79cb6af";
+        let articlesData = [];
+
+        // DOM Elements
+        const loadingSpinner = document.getElementById('loading');
+        const newsGrid = document.getElementById('news-grid');
+        const articleView = document.getElementById('article-view');
+        const articleContent = document.getElementById('article-content');
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Fetch News Logic
+        async function fetchNews() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Error al obtener noticias');
+
+                const data = await response.json();
+                articlesData = data.articles || [];
+
+                renderGrid();
+            } catch (error) {
+                console.error("Error fetching news:", error);
+                newsGrid.innerHTML = `<p class="text-center col-span-full text-red-400">No se pudieron cargar las noticias en este momento. Intenta más tarde.</p>`;
+            } finally {
+                loadingSpinner.style.display = 'none';
+                newsGrid.classList.remove('hidden');
+            }
+        }
+
+        // Generate clean excerpt from HTML content
+        function getExcerpt(htmlContent, length = 120) {
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = htmlContent;
+            let text = tempDiv.textContent || tempDiv.innerText || "";
+            text = text.replace(/\s+/g, ' ').trim(); // Normalize whitespace
+            return text.length > length ? text.substring(0, length) + "..." : text;
+        }
+
+        // Render the Grid View (Diseño Moderno y Compacto)
+        function renderGrid() {
+            newsGrid.innerHTML = ''; // Clear existing
+
+            if (articlesData.length === 0) {
+                newsGrid.innerHTML = '<p class="text-center col-span-full text-gray-400">No hay noticias disponibles.</p>';
+                return;
+            }
+
+            articlesData.forEach((article, index) => {
+                const excerpt = getExcerpt(article.content || '', 120);
+                
+                // 1. Intenta usar la imagen principal (thumbnail_url) que envía la IA
+                let imgSrc = article.thumbnail_url;
+                
+                // Si la imagen existe pero no tiene el "https://", le agregamos la ruta de tu servidor nuevo
+                if (imgSrc && !imgSrc.startsWith('http')) {
+                    imgSrc = "https://seo.app.gurumkt.com.mx/storage/" + imgSrc;
+                }
+                
+                // 2. Si no hay imagen principal, busca una dentro del texto del artículo
+                if (!imgSrc && article.content) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = article.content;
+                    const firstImg = tempDiv.querySelector('img');
+                    imgSrc = firstImg ? firstImg.src : null;
+                }
+
+                // Generar fecha bonita (si existe)
+                const dateObj = new Date(article.scheduled_date || article.created_at);
+                const formattedDate = !isNaN(dateObj) ? dateObj.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Reciente';
+
+                // Usamos imagen por defecto si de plano no hay nada
+                if (!imgSrc) {
+                    imgSrc = "img/guru_blog.jpg";
+                }
+
+                const card = document.createElement('article');
+                // Nuevas clases CSS para la tarjeta
+                card.className = "bg-gray-800/40 backdrop-blur-sm p-0 rounded-2xl hover:bg-gray-800/80 transition-all duration-300 group flex flex-col overflow-hidden border border-white/5 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 h-full cursor-pointer";
+                
+                // Hacemos que toda la tarjeta sea cliqueable
+                card.onclick = () => openArticle(index);
+
+                card.innerHTML = `
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="${imgSrc}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" alt="${article.title}">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold text-white bg-blue-600/90 backdrop-blur-md rounded-md uppercase tracking-wider shadow-sm">News</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-90"></div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h2 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors leading-snug line-clamp-2 text-white">${article.title}</h2>
+                        <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3 leading-relaxed">${excerpt}</p>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+                            <span class="text-xs text-gray-500 font-medium"><i class="far fa-calendar-alt mr-1"></i> ${formattedDate}</span>
+                            <span class="text-blue-400 text-sm font-semibold flex items-center group-hover:text-blue-300 transition-colors">
+                                Leer <i class="fas fa-arrow-right ml-1 text-xs group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </div>
+                    </div>
+                `;
+                newsGrid.appendChild(card);
+            });
+        }
+
+        // Open specific article
+        function openArticle(index) {
+            const article = articlesData[index];
+            if (!article) return;
+
+            // Update content
+            // We use the full HTML content from the API
+            articleContent.innerHTML = article.content;
+
+            // Switch views
+            newsGrid.classList.add('hidden');
+            articleView.classList.remove('hidden');
+
+            // Scroll to top of article
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show Grid (Back button)
+        window.showGrid = function () { // Expose to window for onclick attribute
+            articleView.classList.add('hidden');
+            newsGrid.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initial Load
+        document.addEventListener('DOMContentLoaded', fetchNews);
+
+        // Mobile Menu Logic (Copied from Script.js for standalone functionality)
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-gray-900/95', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-gray-900/95', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

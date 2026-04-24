@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra | Guru Marketing</title>
+    <meta name="description" content="Agencia de Publicidad Manzanillo">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/logo-normAsset%202.png">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1169052968437432');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+
+<body class="bg-black text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+    <div class="min-h-screen flex items-center justify-center p-4 relative z-10">
+        <div
+            class="glass-card max-w-3xl w-full p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+
+            <!-- Success Animation & Header -->
+            <div class="text-center mb-10">
+                <div class="w-24 h-24 mx-auto mb-6 animate-bounce">
+                    <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo"
+                        class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                </div>
+                <h1
+                    class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400 mb-2">
+                    ¡Gracias por tu Compra!
+                </h1>
+                <p class="text-gray-400">Tu pago ha sido procesado exitosamente. Por favor completa los detalles de tu
+                    evento.</p>
+            </div>
+
+            <form action="https://formsubmit.co/a.garcia@gurumkt.com.mx" method="POST" class="space-y-6">
+                <!-- Config Hidden Fields -->
+                <input type="hidden" name="_subject" value="NUEVA COMPRA - Detalles del Evento">
+                <input type="hidden" name="_captcha" value="false">
+
+                <!-- 1. Tipo de Evento -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Tipo de Evento</label>
+                    <select id="eventType" name="tipo_evento" required onchange="toggleFields()"
+                        class="w-full bg-gray-900/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all">
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="boda">Boda</option>
+                        <option value="xv">XV Años</option>
+                        <option value="cumpleanos">Cumpleaños / Aniversario</option>
+                        <option value="empresarial">Evento Empresarial</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <!-- 2. Campos Dinámicos -->
+                <div id="dynamicFields" class="space-y-6">
+
+                    <!-- Boda Fields -->
+                    <div id="bodaFields"
+                        class="hidden grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="md:col-span-2 text-pink-300 font-bold border-b border-white/10 pb-2 mb-2"><i
+                                class="fas fa-heart mr-2"></i> Datos de los Novios</div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Nombre de la Novia</label>
+                            <input type="text" name="nombre_novia"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Nombre del Novio</label>
+                            <input type="text" name="nombre_novio"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                    </div>
+
+                    <!-- XV / Cumpleaños Fields -->
+                    <div id="festejadoFields" class="hidden p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="text-purple-300 font-bold border-b border-white/10 pb-2 mb-4"><i
+                                class="fas fa-birthday-cake mr-2"></i> Datos del Festejado(a)</div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Nombre Completo</label>
+                            <input type="text" name="nombre_festejado"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                    </div>
+
+                    <!-- Empresarial Fields -->
+                    <div id="empresarialFields"
+                        class="hidden grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="md:col-span-2 text-blue-300 font-bold border-b border-white/10 pb-2 mb-2"><i
+                                class="fas fa-briefcase mr-2"></i> Datos Corporativos</div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Nombre del Evento</label>
+                            <input type="text" name="nombre_evento_corp"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Fechas del Evento</label>
+                            <input type="text" name="fechas_evento" placeholder="Ej: 10-12 Nov"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-1">Horarios</label>
+                            <input type="text" name="horarios_evento" placeholder="Ej: 9:00 AM - 6:00 PM"
+                                class="w-full bg-gray-800 border border-white/10 rounded-lg px-3 py-2">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 3. Campos Comunes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Ubicación Ceremonia</label>
+                        <input type="text" name="ubicacion_ceremonia" required placeholder="Iglesia / Lugar"
+                            class="w-full bg-gray-900/60 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Ubicación Recepción /
+                            Cocktail</label>
+                        <input type="text" name="ubicacion_recepcion" required placeholder="Salón / Jardín"
+                            class="w-full bg-gray-900/60 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-all">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Link Mesa de Regalos</label>
+                        <input type="url" name="link_regalos" placeholder="https://amazon..."
+                            class="w-full bg-gray-900/60 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Datos Lluvia de Sobres</label>
+                        <input type="text" name="datos_deposito" placeholder="Cuenta / CLABE"
+                            class="w-full bg-gray-900/60 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-all">
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions Checkbox -->
+                <div class="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
+                    <div class="flex items-center h-5">
+                        <input id="terms" name="terms" type="checkbox" required
+                            class="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500 ring-offset-gray-800">
+                    </div>
+                    <label for="terms" class="text-sm text-gray-400">
+                        He leído y acepto el <a href="contrato-servicios.html" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 underline font-semibold">Contrato de Prestación de
+                            Servicios</a>, incluyendo los plazos de entrega, políticas de imágenes y cargos por
+                        urgencia.
+                    </label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="pt-6">
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-green-500/30 transition-all transform hover:-translate-y-1">
+                        Enviar Datos y Finalizar <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                    <a href="index.html"
+                        class="block text-center text-gray-500 text-sm mt-4 hover:text-white transition-colors">Volver
+                        al Inicio</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": { "number": { "value": 40 }, "color": { "value": "#ffffff" }, "opacity": { "value": 0.2 }, "line_linked": { "enable": true, "opacity": 0.1 } }
+        });
+
+        function toggleFields() {
+            const type = document.getElementById('eventType').value;
+
+            // Hide all first
+            document.getElementById('bodaFields').classList.add('hidden');
+            document.getElementById('festejadoFields').classList.add('hidden');
+            document.getElementById('empresarialFields').classList.add('hidden');
+
+            // Show relevant
+            if (type === 'boda') {
+                document.getElementById('bodaFields').classList.remove('hidden');
+            } else if (type === 'xv' || type === 'cumpleanos') {
+                document.getElementById('festejadoFields').classList.remove('hidden');
+            } else if (type === 'empresarial') {
+                document.getElementById('empresarialFields').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>

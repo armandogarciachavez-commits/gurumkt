@@ -1,0 +1,195 @@
+.
+./Publicaciones 
+./Publicaciones /Revista01.pdf
+./Publicaciones /Expresion01-issuu-final-final.pdf
+./Publicaciones /portafa-expressa.webp
+./Publicaciones /ExpresaNo2-issuu.pdf
+./Publicaciones /Vamos2-Elec.pdf
+./Publicaciones /high-quality-magazine-mockup-set-for-branding-2026-01-06-17-47-34-utc.zip
+./Publicaciones /FINAL-BAJA.pdf
+./Publicaciones /revista-interiores.jpg
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc.zip
+./Publicaciones /portadas2.jpg
+./Publicaciones /revista-interiores.webp
+./Publicaciones /portadas2.webp
+./Publicaciones /revista-aaapumac.jpg
+./Publicaciones /Directorio-AAAPUMAC-2025.pdf
+./Publicaciones /Revista-OnLine-Candy King.pdf
+./Publicaciones /Revista 2017.pdf
+./Publicaciones /revista-candy.webp
+./Publicaciones /Magazine Mockup
+./Publicaciones /Magazine Mockup/Magazine Mockup 2.psd
+./Publicaciones /Magazine Mockup/Magazine Mockup 3.psd
+./Publicaciones /Magazine Mockup/Magazine Mockup 1.psd
+./Publicaciones /Magazine Mockup/Quick Guide.pdf
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc/7048-1-magazine-mockups.psd
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc/7048-4-magazine-mockups.psd
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc/How to Use.txt
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc/7048-3-magazine-mockups.psd
+./Publicaciones /high-quality-elegant-magazine-mockup-set-2026-01-03-05-02-42-utc/7048-2-magazine-mockups.psd
+./Publicaciones /revista-aaapumac.webp
+./Publicaciones /revista-candy.jpg
+./Publicaciones /portafa-expressa.jpg
+./Publicaciones /Estrategaia23-issu.pdf
+./file_list.txt
+./xv-gallery-3.webp
+./audiovisual.html
+./index.html
+./tailwind.config.js
+./Editorial
+./Editorial/cover2.webp
+./Editorial/cover3.webp
+./Editorial/cover4.webp
+./Editorial/cover5.webp
+./Editorial/cover5.jpg
+./Editorial/cover4.jpg
+./Editorial/cover1.jpg
+./Editorial/cover1.webp
+./Editorial/cover3.jpg
+./Editorial/cover2.jpg
+./xv-gallery-2.webp
+./seo.html
+./styles.css
+./editorial.html
+./final.css
+./boda-gallery-2.jpg
+./boda-gallery-3.jpg
+./quinceanera
+./quinceanera/2149449229.webp
+./quinceanera/young-woman-celebrating-her-quinceanera.webp
+./quinceanera/2149449229.jpg
+./quinceanera/young-woman-celebrating-her-quinceanera.jpg
+./quinceanera/2149449255.webp
+./quinceanera/young-woman-crelebrating-her-quinceanera.jpg
+./quinceanera/young-woman-crelebrating-her-quinceanera.webp
+./quinceanera/music.mp3
+./quinceanera/2149449255.jpg
+./quinceanera/young-woman-cerlebrating-her-quinceanera.jpg
+./quinceanera/young-woman-cerlebrating-her-quinceanera.webp
+./boda-gallery-1.jpg
+./xv-gallery-4.jpg
+./tailwind-input.css
+./invitacion-boda.html
+./confirmacion-compra.html
+./xv-gallery-1.jpg
+./logo.webp
+./boda-gallery-1.webp
+./contrato-servicios.html
+./xv-hero.jpg
+./xv-gallery-4.webp
+./xv-gallery-2.jpg
+./xv-gallery-3.jpg
+./payment.php
+./Sitios Web
+./Sitios Web/transvla.webp
+./Sitios Web/nohatours.png
+./Sitios Web/gcb.webp
+./Sitios Web/nohatours.webp
+./Sitios Web/ramcon.png
+./Sitios Web/grupologisticoplim.webp
+./Sitios Web/gcb.png
+./Sitios Web/transvla.png
+./Sitios Web/coldwellbankercolimar.png
+./Sitios Web/Nuestras Noticias.png
+./Sitios Web/comrom.webp
+./Sitios Web/taxa .webp
+./Sitios Web/taxa .png
+./Sitios Web/Nuestras Noticias.webp
+./Sitios Web/grupologisticoplim.png
+./Sitios Web/comrom.png
+./Sitios Web/coldwellbankercolimar.webp
+./Sitios Web/ramcon.webp
+./web-design.html
+./script.js
+./invitacion-evento.html
+./invitaciones.html
+./convert_webp.py
+./invitacion-xv.html
+./boda-gallery-2.webp
+./package-lock.json
+./package.json
+./logo.png
+./xv-hero.webp
+./boda-gallery-3.webp
+./marketing.html
+./Logos Clientes
+./Logos Clientes/apumac.webp
+./Logos Clientes/apumac.png
+./Logos Clientes/liuna.webp
+./Logos Clientes/aqui.webp
+./Logos Clientes/congreso.png
+./Logos Clientes/rambo.webp
+./Logos Clientes/gcb.webp
+./Logos Clientes/aqui.png
+./Logos Clientes/integrace.webp
+./Logos Clientes/woodward.png
+./Logos Clientes/uroavanz.webp
+./Logos Clientes/carrier.png
+./Logos Clientes/tap.png
+./Logos Clientes/liuna.png
+./Logos Clientes/rerto.png
+./Logos Clientes/ramcon.png
+./Logos Clientes/ela.webp
+./Logos Clientes/integrace.png
+./Logos Clientes/caandy.webp
+./Logos Clientes/taxa.webp
+./Logos Clientes/coldwell.webp
+./Logos Clientes/gcb.png
+./Logos Clientes/coldwell.png
+./Logos Clientes/congreso.webp
+./Logos Clientes/caandy.png
+./Logos Clientes/ixtla.webp
+./Logos Clientes/rerto.webp
+./Logos Clientes/ela.png
+./Logos Clientes/romo.png
+./Logos Clientes/pulse.png
+./Logos Clientes/uroavanz.png
+./Logos Clientes/sunset.webp
+./Logos Clientes/tap.webp
+./Logos Clientes/gobienro-manzanillo.webp
+./Logos Clientes/gobiernocolima.png
+./Logos Clientes/pulse.webp
+./Logos Clientes/gobienro-manzanillo.png
+./Logos Clientes/carrier.webp
+./Logos Clientes/ixtla.png
+./Logos Clientes/romo.webp
+./Logos Clientes/api.webp
+./Logos Clientes/gobiernocolima.webp
+./Logos Clientes/api.png
+./Logos Clientes/taxa.png
+./Logos Clientes/noa.webp
+./Logos Clientes/rambo.png
+./Logos Clientes/sunset.png
+./Logos Clientes/ramcon.webp
+./Logos Clientes/noa.png
+./Logos Clientes/woodward.webp
+./sitemap.xml
+./robots.txt
+./xv-gallery-1.webp
+./parabodas
+./parabodas/couple-taking-selfie-together-outdoors-with-engagement-ring.webp
+./parabodas/11963.webp
+./parabodas/couple-taking-selfie-together-outdoors-with-engagement-ring.jpg
+./parabodas/2149488087.webp
+./parabodas/happy-couple-posing-outgdoors-city-with-engagement-ring.webp
+./parabodas/2149488087.jpg
+./parabodas/happy-couple-posing-outdoors-city-with-engagement-ring.webp
+./parabodas/11963.jpg
+./parabodas/Bill Withers - Just The Two Of Us  (official video).mp3
+./parabodas/happy-couple-posing-outdoors-city-with-engagement-ring.jpg
+./parabodas/happy-couple-posing-outgdoors-city-with-engagement-ring.jpg
+./boda-hero.jpg
+./GuruWeb3.0
+./GuruWeb3.0/diseno-web-manzanillo.html
+./GuruWeb3.0/redes-sociales-manzanillo.html
+./GuruWeb3.0/index.html
+./GuruWeb3.0/google-ads-manzanillo.html
+./GuruWeb3.0/blog
+./GuruWeb3.0/blog/marketing-hoteles-manzanillo.html
+./GuruWeb3.0/blog/marketing-digital-manzanillo-guia.html
+./GuruWeb3.0/seo-local-manzanillo.html
+./GuruWeb3.0/sitemap.xml
+./branding.html
+./boda-hero.webp
+./aviso-privacidad.html

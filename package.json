@@ -1,0 +1,12 @@
+{
+    "name": "guru-marketing-landing",
+    "version": "1.0.0",
+    "description": "Guru Marketing Landing Page",
+    "scripts": {
+        "build": "npx tailwindcss -i ./tailwind-input.css -o ./final.css --minify",
+        "watch": "npx tailwindcss -i ./tailwind-input.css -o ./final.css --watch"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.1"
+    }
+}
