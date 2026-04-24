@@ -46,8 +46,10 @@
 
     <!-- Stripe JS: se carga dinámicamente en payment.js al abrir el modal -->
 
+    <!-- reCAPTCHA Enterprise -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB"></script>
+
     <!-- JSON-LD Schema -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -989,12 +991,11 @@
 
                 <!-- Contact Form (Right) -->
                 <div class="lg:w-2/3">
-                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/a.garcia@gurumkt.com.mx"
-                        method="POST">
-                        <!-- Configuration -->
-                        <input type="hidden" name="_subject" value="Nuevo Mensaje de Sitio Web Guru Marketing">
-                        <input type="hidden" name="_next" value="https://gurumkt.com.mx/index.html">
-                        <input type="text" name="_honey" style="display:none">
+                    <form id="contactForm" class="space-y-6" action="contact.php" method="POST">
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <!-- Token reCAPTCHA (se llena al enviar) -->
+                        <input type="hidden" name="recaptcha_token" id="recaptchaToken">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-400 mb-2">Nombre</label>
@@ -1045,16 +1046,20 @@
                             </label>
                         </div>
 
-                        <!-- reCAPTCHA Widget -->
-                        <div class="mb-6 flex justify-center md:justify-start">
-                            <div class="g-recaptcha" data-sitekey="6LdQKWIsAAAAAMDlgf04n7GNEtI1lnvI3IxPNdHN"
-                                data-callback="enableSubmit"></div>
-                        </div>
+                        <!-- Protegido por reCAPTCHA Enterprise (invisible) -->
+                        <p class="text-xs text-gray-500 mb-4">
+                            Este sitio está protegido por reCAPTCHA y se aplican la
+                            <a href="https://policies.google.com/privacy" target="_blank" class="text-blue-400 hover:underline">Política de Privacidad</a>
+                            y los
+                            <a href="https://policies.google.com/terms" target="_blank" class="text-blue-400 hover:underline">Términos de Servicio</a>
+                            de Google.
+                        </p>
 
-                        <button id="submitBtn" disabled
-                            class="w-full bg-gray-600 text-gray-300 font-bold py-4 rounded-lg cursor-not-allowed transition-all">
-                            Completa el Captcha para enviar <i class="fas fa-lock ml-2"></i>
+                        <button id="submitBtn" type="submit"
+                            class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 transition-all">
+                            Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
                         </button>
+                        <p id="formStatus" class="text-sm text-center mt-4 hidden"></p>
                     </form>
                 </div>
             </div>
@@ -1252,13 +1257,65 @@
             src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     <script>
-        function enableSubmit() {
+        // Integración reCAPTCHA Enterprise (invisible) + envío del formulario
+        (function () {
+            const RECAPTCHA_SITE_KEY = '6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB';
+            const form = document.getElementById('contactForm');
             const btn = document.getElementById('submitBtn');
-            btn.disabled = false;
-            btn.classList.remove('bg-gray-600', 'text-gray-300', 'cursor-not-allowed');
-            btn.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white', 'hover:shadow-lg', 'hover:shadow-blue-500/30', 'hover:-translate-y-1');
-            btn.innerHTML = 'Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>';
-        }
+            const status = document.getElementById('formStatus');
+            const tokenField = document.getElementById('recaptchaToken');
+
+            if (!form) return;
+
+            function setStatus(msg, type) {
+                status.textContent = msg;
+                status.classList.remove('hidden', 'text-green-400', 'text-red-400', 'text-gray-400');
+                status.classList.add(
+                    type === 'success' ? 'text-green-400'
+                        : type === 'error' ? 'text-red-400'
+                            : 'text-gray-400'
+                );
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Honeypot: si hay algo, el bot se va al vacío
+                if (form._honey && form._honey.value) return;
+
+                btn.disabled = true;
+                btn.innerHTML = 'Enviando... <i class="fas fa-circle-notch fa-spin ml-2"></i>';
+                setStatus('Verificando...', 'info');
+
+                grecaptcha.enterprise.ready(async function () {
+                    try {
+                        const token = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+                        tokenField.value = token;
+
+                        const formData = new FormData(form);
+                        const res = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        const data = await res.json().catch(() => ({}));
+
+                        if (res.ok && data.ok) {
+                            setStatus('¡Mensaje enviado! Te contactaremos pronto.', 'success');
+                            form.reset();
+                        } else {
+                            setStatus(data.error || 'No se pudo enviar el mensaje. Intenta de nuevo.', 'error');
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        setStatus('Error de conexión. Intenta de nuevo.', 'error');
+                    } finally {
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>';
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 
