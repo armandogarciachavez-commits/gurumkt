@@ -11,6 +11,8 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://gurumkt.com.mx/seo.html">
+    <link rel="alternate" hreflang="es-MX" href="https://gurumkt.com.mx/seo.html">
+    <link rel="alternate" hreflang="x-default" href="https://gurumkt.com.mx/seo.html">
 
     <!-- Geo / Local SEO -->
     <meta name="geo.region" content="MX-COL">
@@ -26,11 +28,60 @@
     <meta property="og:image" content="https://gurumkt.com.mx/logo.webp">
     <meta property="og:locale" content="es_MX">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="final.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/logo-normAsset%202.png">
+
+    <!-- Schema: Service + BreadcrumbList -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Search Engine Optimization",
+  "name": "Posicionamiento SEO",
+  "description": "Estrategias de SEO técnico y on-page en Manzanillo. Auditoría, optimización y generación de leads.",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Guru Marketing",
+    "url": "https://gurumkt.com.mx",
+    "telephone": "+523141461520",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manzanillo",
+      "addressRegion": "Colima",
+      "addressCountry": "MX"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Manzanillo, Colima"
+  },
+  "url": "https://gurumkt.com.mx/seo.html"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://gurumkt.com.mx/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Posicionamiento SEO",
+      "item": "https://gurumkt.com.mx/seo.html"
+    }
+  ]
+}
+    </script>
+
 </head>
 
 <body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-blue-500 selection:text-white">
