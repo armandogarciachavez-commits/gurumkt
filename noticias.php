@@ -477,6 +477,7 @@ if ($current) {
                     <a href="/seo.html" class="hover:text-white transition-colors">SEO</a>
                     <a href="/invitaciones.html" class="hover:text-white transition-colors">Invitaciones Digitales</a>
                     <a href="/noticias" class="hover:text-white transition-colors">Noticias</a>
+                    <a href="/contrato-servicios.html" class="hover:text-white transition-colors">Términos y Condiciones</a>
                     <a href="/aviso-privacidad.html" class="hover:text-white transition-colors">Aviso de Privacidad</a>
                 </div>
             </div>

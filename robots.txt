@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /confirmacion-compra.html
-Disallow: /contrato-servicios.html
 Disallow: /payment.php
 Disallow: /payment.js
 Disallow: /contact.php

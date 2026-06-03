@@ -4,8 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones | Guru Marketing</title>
-    <meta name="description" content="Agencia de Publicidad Manzanillo">
+    <title>Términos y Condiciones del Servicio | Guru Marketing</title>
+    <meta name="description"
+        content="Contrato de prestación de servicios digitales de Guru Marketing: alcance, tiempos de entrega, propiedad intelectual, pagos y cancelaciones para servicios contratados en gurumkt.com.mx.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gurumkt.com.mx/contrato-servicios.html">
+    <link rel="alternate" hreflang="es-MX" href="https://gurumkt.com.mx/contrato-servicios.html">
+    <link rel="alternate" hreflang="x-default" href="https://gurumkt.com.mx/contrato-servicios.html">
+
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="MX-COL">
+    <meta name="geo.placename" content="Manzanillo">
+    <meta name="geo.position" content="19.0522;-104.3158">
+    <meta name="ICBM" content="19.0522, -104.3158">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gurumkt.com.mx/contrato-servicios.html">
+    <meta property="og:title" content="Términos y Condiciones del Servicio | Guru Marketing">
+    <meta property="og:description" content="Contrato de prestación de servicios digitales de Guru Marketing.">
+    <meta property="og:image" content="https://gurumkt.com.mx/logo.webp">
+    <meta property="og:locale" content="es_MX">
+
     <link rel="stylesheet" href="final.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -33,10 +54,32 @@ src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1"
 
 <body class="bg-black text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
 
+    <!-- Navbar simple -->
+    <nav class="border-b border-white/10 bg-black/80 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tighter">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">GURU</span>
+                MARKETING
+            </a>
+            <a href="/" class="text-sm text-gray-400 hover:text-blue-400 transition-colors">
+                <i class="fas fa-arrow-left mr-1"></i> Volver al inicio
+            </a>
+        </div>
+    </nav>
+
     <div class="container mx-auto px-6 py-20 max-w-4xl">
 
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm text-gray-400" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap gap-2 items-center">
+                <li><a href="/" class="hover:text-blue-400">Inicio</a></li>
+                <li><i class="fas fa-chevron-right text-xs text-gray-600"></i></li>
+                <li class="text-gray-300">Términos y Condiciones</li>
+            </ol>
+        </nav>
+
         <div class="text-center mb-12">
-            <img src="img/logo.webp" alt="Agencia de Publicidad en Manzanillo" class="h-16 mx-auto mb-6">
+            <a href="/"><img src="img/logo.webp" alt="Logo Guru Marketing - Agencia de publicidad en Manzanillo" class="h-16 mx-auto mb-6"></a>
             <h1
                 class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
                 TÉRMINOS Y CONDICIONES
@@ -222,14 +265,38 @@ src="https://www.facebook.com/tr?id=1169052968437432&ev=PageView&noscript=1"
         </div>
 
         <div class="mt-8 text-center flex flex-col items-center gap-4">
-            <p class="text-sm text-gray-500">Al cerrar esta ventana podrás continuar con tu proceso.</p>
-            <button onclick="window.close()"
+            <a href="/" id="back-home-btn"
+                class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-blue-500/30 rounded-full transition-all flex items-center gap-2 text-white font-semibold">
+                <i class="fas fa-arrow-left"></i> Volver al inicio
+            </a>
+            <button id="close-window-btn" onclick="window.close()" style="display:none"
                 class="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-colors flex items-center gap-2">
                 <i class="fas fa-times"></i> Cerrar Ventana
             </button>
         </div>
 
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-8 mt-12">
+        <div class="container mx-auto px-6 text-center text-sm text-gray-500">
+            <p>&copy; 2026 Guru Marketing. Todos los derechos reservados.</p>
+            <div class="flex flex-wrap gap-4 mt-4 justify-center">
+                <a href="/" class="hover:text-white transition-colors">Inicio</a>
+                <a href="/aviso-privacidad.html" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+                <a href="/contrato-servicios.html" class="hover:text-white transition-colors">Términos y Condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Si la página fue abierta como popup (tiene window.opener), muestra "Cerrar Ventana"
+        // y oculta "Volver al inicio". Si llegó por navegación normal, al revés.
+        if (window.opener && window.opener !== window) {
+            document.getElementById('back-home-btn').style.display = 'none';
+            document.getElementById('close-window-btn').style.display = 'flex';
+        }
+    </script>
 
 </body>
 
