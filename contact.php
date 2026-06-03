@@ -1,23 +1,26 @@
 <?php
 /**
  * Guru Marketing - Contact form endpoint
- * Valida reCAPTCHA Enterprise y envía el correo al destinatario.
+ * Valida reCAPTCHA Enterprise (legacy secret) y envía el correo.
  */
 
 header('Content-Type: application/json; charset=utf-8');
 
-// ============================================================
-// CONFIGURACIÓN
-// ============================================================
-$RECAPTCHA_SITE_KEY    = '6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB';
-$RECAPTCHA_SECRET_KEY  = '6Le74cQsAAAAACrlgGA5EFTxxcCCKWs0rZ8FlrfA';
-$RECAPTCHA_ACTION      = 'contact';
-$RECAPTCHA_MIN_SCORE   = 0.5;
+$configFile = __DIR__ . '/config.php';
+if (!file_exists($configFile)) {
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => 'Falta config.php en el servidor']);
+    exit;
+}
+$config = require $configFile;
 
-$MAIL_TO       = 'a.garcia@gurumkt.com.mx';
-$MAIL_FROM     = 'no-reply@gurumkt.com.mx';
-$MAIL_SUBJECT  = 'Nuevo Mensaje de Sitio Web Guru Marketing';
-// ============================================================
+$RECAPTCHA_SECRET_KEY = $config['recaptcha']['secret_key'];
+$RECAPTCHA_ACTION     = $config['recaptcha']['action']    ?? 'contact';
+$RECAPTCHA_MIN_SCORE  = $config['recaptcha']['min_score'] ?? 0.5;
+
+$MAIL_TO      = $config['mail']['to'];
+$MAIL_FROM    = $config['mail']['from'];
+$MAIL_SUBJECT = $config['mail']['subject'];
 
 function json_response($code, $payload) {
     http_response_code($code);
@@ -29,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_response(405, ['ok' => false, 'error' => 'Método no permitido']);
 }
 
-// Honeypot: si un bot llenó el campo oculto, descartamos silenciosamente
+// Honeypot: los bots que llenan este campo se descartan silenciosamente
 if (!empty($_POST['_honey'])) {
     json_response(200, ['ok' => true]);
 }
@@ -52,7 +55,7 @@ if ($token === '') {
 }
 
 // ============================================================
-// Validación reCAPTCHA vía siteverify
+// Validación reCAPTCHA vía siteverify (compatible con Enterprise legacy secret)
 // ============================================================
 $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
 curl_setopt_array($ch, [

@@ -47,7 +47,7 @@
     <!-- Stripe JS: se carga dinámicamente en payment.js al abrir el modal -->
 
     <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lea7cYsAAAAAH7ZBvNTYkmmSVEOsTzyBSQKpGII"></script>
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
@@ -1259,7 +1259,7 @@
     <script>
         // Integración reCAPTCHA Enterprise (invisible) + envío del formulario
         (function () {
-            const RECAPTCHA_SITE_KEY = '6Le74cQsAAAAAIBQIFI6HBUgjLUFAYhRt32-juwB';
+            const RECAPTCHA_SITE_KEY = '6Lea7cYsAAAAAH7ZBvNTYkmmSVEOsTzyBSQKpGII';
             const form = document.getElementById('contactForm');
             const btn = document.getElementById('submitBtn');
             const status = document.getElementById('formStatus');
@@ -1287,9 +1287,9 @@
                 btn.innerHTML = 'Enviando... <i class="fas fa-circle-notch fa-spin ml-2"></i>';
                 setStatus('Verificando...', 'info');
 
-                grecaptcha.ready(async function () {
+                grecaptcha.enterprise.ready(async function () {
                     try {
-                        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+                        const token = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
                         tokenField.value = token;
 
                         const formData = new FormData(form);
