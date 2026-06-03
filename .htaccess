@@ -5,11 +5,11 @@
 
     # 1) Redirigir www → no-www (cualquier protocolo)
     RewriteCond %{HTTP_HOST} ^www\.gurumkt\.com\.mx$ [NC]
-    RewriteRule ^(.*)$ https://gurumkt.com.mx/$1 [R=301,L]
+    RewriteRule ^ https://gurumkt.com.mx%{REQUEST_URI} [R=301,L]
 
     # 2) Forzar HTTPS si llegó por HTTP
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://gurumkt.com.mx/$1 [R=301,L]
+    RewriteRule ^ https://gurumkt.com.mx%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # Security Headers
