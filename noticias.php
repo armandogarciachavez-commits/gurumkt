@@ -179,7 +179,12 @@ if ($current) {
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="/img/logo-normAsset%202.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0f172a">
 
     <style>
         .article-content h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;
