@@ -10,6 +10,16 @@
     # 2) Forzar HTTPS si llegó por HTTP
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://gurumkt.com.mx%{REQUEST_URI} [R=301,L]
+
+    # 3) Blog dinámico: URLs limpias para noticias
+    #    /noticias                → noticias.php (listado)
+    #    /noticias/algun-slug     → noticias.php?slug=algun-slug
+    #    /sitemap-noticias.xml    → sitemap-noticias.php
+    #    /noticias.html           → 301 a /noticias (canonical)
+    RewriteRule ^noticias\.html$ /noticias [R=301,L]
+    RewriteRule ^noticias/?$ /noticias.php [L]
+    RewriteRule ^noticias/([a-z0-9][a-z0-9-]*)/?$ /noticias.php?slug=$1 [L,QSA]
+    RewriteRule ^sitemap-noticias\.xml$ /sitemap-noticias.php [L]
 </IfModule>
 
 # Security Headers

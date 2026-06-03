@@ -7,3 +7,4 @@ Disallow: /payment.js
 Disallow: /contact.php
 
 Sitemap: https://gurumkt.com.mx/sitemap.xml
+Sitemap: https://gurumkt.com.mx/sitemap-noticias.xml

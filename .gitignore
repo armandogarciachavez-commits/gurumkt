@@ -8,3 +8,6 @@ node_modules/
 
 # Credenciales locales (NO commitear)
 config.php
+
+# Archivos comprimidos no relacionados
+*.zip
