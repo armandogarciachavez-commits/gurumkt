@@ -131,13 +131,13 @@ if ($current) {
     $page_title    = htmlspecialchars($current['title']) . ' | Guru Marketing';
     $page_desc     = htmlspecialchars(excerpt($current['content'] ?? '', 160));
     $canonical     = $SITE_URL . '/noticias/' . $current['slug'];
-    $og_image      = $current['thumbnail_url'] ?: ($SITE_URL . '/logo.webp');
+    $og_image      = $current['thumbnail_url'] ?: ($SITE_URL . '/img/logo.webp');
     $og_type       = 'article';
 } else {
     $page_title    = 'Noticias de Marketing Digital en Manzanillo | Guru Marketing';
     $page_desc     = 'Las últimas noticias, tendencias y estrategias de marketing digital, diseño web y publicidad en Manzanillo, Colima.';
     $canonical     = $SITE_URL . '/noticias';
-    $og_image      = $SITE_URL . '/logo.webp';
+    $og_image      = $SITE_URL . '/img/logo.webp';
     $og_type       = 'website';
 }
 ?><!DOCTYPE html>
@@ -207,7 +207,7 @@ if ($current) {
         '@type'            => 'Article',
         'headline'         => $current['title'],
         'description'      => excerpt($current['content'] ?? '', 160),
-        'image'            => $current['thumbnail_url'] ?: ($SITE_URL . '/logo.webp'),
+        'image'            => $current['thumbnail_url'] ?: ($SITE_URL . '/img/logo.webp'),
         'datePublished'    => $current['date_iso'],
         'dateModified'     => $current['date_iso'],
         'author'           => [
@@ -220,7 +220,7 @@ if ($current) {
             'name'  => 'Guru Marketing',
             'logo'  => [
                 '@type' => 'ImageObject',
-                'url'   => $SITE_URL . '/logo.webp',
+                'url'   => $SITE_URL . '/img/logo.webp',
             ],
         ],
         'mainEntityOfPage' => [
@@ -253,7 +253,7 @@ if ($current) {
         'publisher'       => [
             '@type' => 'Organization',
             'name'  => 'Guru Marketing',
-            'logo'  => ['@type' => 'ImageObject', 'url' => $SITE_URL . '/logo.webp'],
+            'logo'  => ['@type' => 'ImageObject', 'url' => $SITE_URL . '/img/logo.webp'],
         ],
     ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) ?>
     </script>

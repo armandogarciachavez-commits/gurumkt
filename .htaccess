@@ -63,7 +63,7 @@
 </IfModule>
 
 # Error Pages
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the "ea-php83" package as the default "PHP" programming language.
