@@ -173,7 +173,7 @@ if ($current) {
     <meta name="twitter:description" content="<?= $page_desc ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($og_image) ?>">
 
-    <link rel="stylesheet" href="/final.css?v=8ecd92ac">
+    <link rel="stylesheet" href="/final.css?v=eb4232c1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">

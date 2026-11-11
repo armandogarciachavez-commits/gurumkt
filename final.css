@@ -211,14 +211,11 @@ body {
 }
 
 /* Cuadrícula de logos de clientes (sustituye al carrusel).
-   Usa el mismo lenguaje glass del resto del sitio (ver .glass-card).
-   Los 12 archivos son PNG/WebP cuadrados de 500x500 con fondo transparente
-   y ~35% de margen alrededor del logo, así que:
-   - Se escalan al ancho del recuadro, no por altura, o el logo visible queda
-     en la mitad del tamaño aparente.
-   - En reposo se pasan a blanco con filter, porque la mayoría son de tinta
-     oscura (Pulse, Romo, Taxa) e ilegibles sobre el fondo oscuro. Al pasar
-     el cursor recuperan su color de marca. */
+   Glass blanco al 40%: suficientemente claro para que se lean los logos de
+   tinta oscura (Pulse, Romo, Taxa) sin romper con el fondo del sitio.
+   Los 12 archivos son cuadrados de 500x500 con fondo transparente y ~35% de
+   margen alrededor, por eso se escalan al ancho del recuadro y no por altura:
+   si no, el logo visible queda en la mitad del tamaño aparente. */
 .logo-box {
     display: flex;
     align-items: center;
@@ -226,36 +223,32 @@ body {
     min-height: 190px;
     padding: 1rem;
     border-radius: 1rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
     transition: background .35s, border-color .35s, transform .35s, box-shadow .35s;
 }
 
 .logo-box:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
-    border-color: rgba(59, 130, 246, 0.45);
+    background: rgba(255, 255, 255, 0.52);
+    border-color: rgba(255, 255, 255, 0.45);
     transform: translateY(-4px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
-                0 14px 34px -12px rgba(59, 130, 246, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                0 14px 34px -12px rgba(0, 0, 0, 0.5);
 }
 
 .logo-box img {
     width: 100%;
     max-width: 195px;
     height: auto;
-    /* Blanco monocromo en reposo: unifica logos de tintas muy distintas. */
-    filter: brightness(0) invert(1);
-    opacity: .72;
-    transition: filter .35s, opacity .35s, transform .35s;
+    transition: transform .35s;
 }
 
+/* El hover solo amplía el logo; conserva su color de marca en todo momento. */
 .logo-box:hover img {
-    filter: none;
-    opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.12);
 }
 
 @media (max-width: 640px) {
@@ -266,14 +259,5 @@ body {
 
     .logo-box img {
         max-width: 145px;
-    }
-}
-
-/* Sin cursor no hay hover que revele el color, así que en táctil los logos
-   se quedan en blanco: a color, los de tinta oscura (Pulse, Congreso) se
-   pierden contra el fondo. Prima que se lean. */
-@media (hover: none) {
-    .logo-box img {
-        opacity: .85;
     }
 }
