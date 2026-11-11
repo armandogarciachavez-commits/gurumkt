@@ -1,19 +1,27 @@
 <?php
 /**
- * Guru Marketing — Catálogo de planes de Guru Conecta.
+ * Guru Marketing — Catálogo de precios.
  *
  * ESTE ARCHIVO ES LA ÚNICA FUENTE DE VERDAD DE LOS PRECIOS.
  *
- * El navegador nunca envía montos: solo manda las claves `plan` y `periodo`,
- * y el servidor resuelve el precio aquí. Así nadie puede manipular el importe
- * desde la consola del navegador.
+ * El navegador nunca envía montos: solo manda una clave de producto, y el
+ * servidor resuelve aquí el precio. Así nadie puede cambiar el importe desde
+ * la consola del navegador.
+ *
+ * Lo usan por igual la integración de Stripe (activa) y la de Mercado Pago
+ * (lista, en pausa hasta que se complete la verificación de la cuenta).
  *
  * Para cambiar un precio, cámbialo aquí y vuelve a desplegar. Las suscripciones
- * ya activas conservan el monto con el que fueron creadas; para modificarlas hay
- * que actualizarlas en Mercado Pago.
+ * ya activas conservan el monto con el que fueron creadas.
  */
 
 return [
+
+// =============================================================
+// SUSCRIPCIONES — Guru Conecta (cobro recurrente)
+// La implementación NO va aquí: se cobra por transferencia bancaria.
+// =============================================================
+'suscripciones' => [
 
     'conecta-esencial' => [
         'nombre'                     => 'Conecta Esencial',
@@ -50,5 +58,40 @@ return [
             'anual'     => ['monto' => 28800.00, 'frequency' => 12, 'frequency_type' => 'months', 'etiqueta' => 'cada año'],
         ],
     ],
+],
+
+// =============================================================
+// PAGOS ÚNICOS — se cobran una sola vez
+// =============================================================
+'unicos' => [
+
+    'invitacion-starter' => [
+        'nombre'      => 'Invitación Digital · Starter',
+        'descripcion' => 'Invitación digital interactiva, paquete Starter.',
+        'monto'       => 600.00,
+    ],
+    'invitacion-smart' => [
+        'nombre'      => 'Invitación Digital · Smart',
+        'descripcion' => 'Invitación digital interactiva, paquete Smart.',
+        'monto'       => 1300.00,
+    ],
+    'invitacion-premium' => [
+        'nombre'      => 'Invitación Digital · Premium',
+        'descripcion' => 'Invitación digital interactiva, paquete Premium.',
+        'monto'       => 2500.00,
+    ],
+
+    'redes-inicial' => [
+        'nombre'      => 'Manejo de Redes · Paquete inicial',
+        'descripcion' => 'Paquete inicial de manejo de redes sociales.',
+        'monto'       => 3500.00,
+    ],
+    'branding-inicial' => [
+        'nombre'      => 'Branding y Diseño · Costo inicial',
+        'descripcion' => 'Imagen gráfica, manual de identidad y aplicaciones.',
+        'monto'       => 5000.00,
+    ],
+
+],
 
 ];

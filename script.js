@@ -121,6 +121,9 @@ const servicesData = {
 function openServiceModal(serviceId) {
     const data = servicesData[serviceId];
     if (data && serviceModal) {
+        // index.html lo usa para cobrar el producto correcto (antes cobraba
+        // $3,500 fijo aunque el modal mostrara otro precio).
+        window._servicioAbierto = serviceId;
         serviceTitle.innerText = data.title;
         servicePrice.innerText = data.price;
         serviceIcon.className = `fas ${data.icon} text-4xl ${data.iconColor}`;

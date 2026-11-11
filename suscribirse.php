@@ -10,7 +10,7 @@
  * nunca envía montos.
  */
 
-$catalogo = require __DIR__ . '/mp-catalogo.php';
+$catalogo = (require __DIR__ . '/catalogo.php')['suscripciones'];
 
 $planSel    = isset($_GET['plan'])    && isset($catalogo[$_GET['plan']]) ? $_GET['plan'] : 'conecta-crecimiento';
 $periodoSel = isset($_GET['periodo']) && isset($catalogo[$planSel]['periodos'][$_GET['periodo']]) ? $_GET['periodo'] : 'mensual';
@@ -52,7 +52,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
 
         <h1 class="text-3xl md:text-4xl font-bold mb-3">Activa tu suscripción</h1>
         <p class="text-gray-400 mb-10">
-            Elige tu plan y confirma. Te llevamos a Mercado Pago para registrar tu método de pago de forma segura.
+            Elige tu plan y confirma. Te llevamos a Stripe para registrar tu método de pago de forma segura.
             <span class="block mt-3 text-sm text-gray-500">Aquí autorizas solo la mensualidad. La implementación
             se paga por transferencia bancaria y te enviamos los datos por separado.</span>
         </p>
@@ -154,13 +154,13 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
             <button type="submit" id="btn-suscribir"
                 class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold hover:shadow-lg hover:shadow-green-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
                 <span id="btn-texto">Continuar al pago seguro</span>
-                <span id="btn-cargando" class="hidden"><i class="fas fa-circle-notch fa-spin mr-2"></i>Conectando con Mercado Pago…</span>
+                <span id="btn-cargando" class="hidden"><i class="fas fa-circle-notch fa-spin mr-2"></i>Conectando con Stripe…</span>
             </button>
 
             <p id="error" class="hidden text-sm text-red-400 text-center"></p>
 
             <p class="text-xs text-gray-500 text-center">
-                <i class="fas fa-lock mr-1"></i> El pago lo procesa Mercado Pago. Guru Marketing no almacena los datos de tu tarjeta.
+                <i class="fas fa-lock mr-1"></i> El pago lo procesa Stripe. Guru Marketing no almacena los datos de tu tarjeta.
             </p>
         </form>
 
@@ -209,10 +209,11 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
             document.getElementById('btn-cargando').classList.remove('hidden');
 
             try {
-                const r = await fetch('mp-suscripcion.php', {
+                const r = await fetch('stripe-checkout.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
+                        tipo: 'suscripcion',
                         plan: planActivo().value,
                         periodo: periodoActivo(),
                         email: document.getElementById('email').value.trim(),
@@ -221,8 +222,8 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
                 });
                 const data = await r.json();
 
-                if (data.ok && data.init_point) {
-                    window.location.href = data.init_point;
+                if (data.ok && data.url) {
+                    window.location.href = data.url;
                     return;
                 }
                 throw new Error(data.error || 'No pudimos iniciar el pago.');

@@ -2,6 +2,10 @@
 /**
  * Guru Marketing — Crea una suscripción recurrente en Mercado Pago.
  *
+ * EN PAUSA. La pasarela activa es Stripe (stripe-checkout.php); este archivo
+ * se conserva listo para cuando se complete la verificación de la cuenta de
+ * Mercado Pago. Ninguna página del sitio lo invoca hoy.
+ *
  * El navegador envía SOLO: plan, periodo y correo del cliente.
  * El monto se resuelve en el servidor contra mp-catalogo.php, así que no es
  * manipulable desde el navegador.
@@ -35,7 +39,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     mp_json(400, ['ok' => false, 'error' => 'Necesitamos un correo electrónico válido.']);
 }
 
-$catalogo = require __DIR__ . '/mp-catalogo.php';
+$catalogo = (require __DIR__ . '/catalogo.php')['suscripciones'];
 
 if (!isset($catalogo[$planKey])) {
     mp_log('warn', 'Plan inexistente solicitado', ['plan' => $planKey]);

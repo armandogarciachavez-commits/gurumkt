@@ -61,7 +61,6 @@
     <!-- Custom Styles -->
 
 
-    <!-- Stripe JS: se carga dinámicamente en payment.js al abrir el modal -->
 
     <!-- reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LfaRmwtAAAAADhsTrH_CnzI8Zw_aoG7eYNzgy1Y" defer></script>
@@ -1344,7 +1343,7 @@
                         class="flex-1 py-4 border border-white/20 rounded-xl font-bold hover:bg-white/5 transition-all">
                         Cotizar
                     </button>
-                    <button onclick="closeServiceModal(); loadPayment(3500)"
+                    <button id="btnPagarServicio" onclick="pagarServicioActual(this)"
                         class="flex-1 py-4 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl font-bold hover:shadow-lg hover:shadow-green-500/30 transition-all transform hover:-translate-y-1">
                         Pagar Ahora <i class="fas fa-credit-card ml-2"></i>
                     </button>
@@ -1353,72 +1352,45 @@
         </div>
     </div>
 
-    <!-- Payment Modal (Stripe) -->
-    <div id="paymentModal"
-        class="fixed inset-0 z-[80] hidden flex items-center justify-center bg-black/95 backdrop-blur-md p-4 transition-all duration-300">
-        <div class="glass-card p-8 rounded-3xl w-full max-w-md relative border border-white/10 shadow-2xl">
-            <button onclick="closePaymentModal()"
-                class="absolute top-4 right-4 text-white/50 hover:text-white transition-colors">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <h3 class="text-2xl font-bold text-white mb-2">Pago Seguro</h3>
-                <p class="text-gray-400 text-sm">Tarjetas de Crédito y Débito</p>
-            </div>
-
-            <!-- Stripe Element Container -->
-            <form id="payment-form">
-                <div id="payment-element" class="mb-6 min-h-[200px]">
-                    <!-- Stripe injects iframe here -->
-                </div>
-
-                <div class="mb-4 flex items-start gap-2">
-                    <input type="checkbox" id="termsCheck"
-                        class="mt-1 w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500 ring-offset-gray-800">
-                    <label for="termsCheck" class="text-xs text-gray-400">
-                        Acepto los <a href="contrato-servicios.html" target="_blank"
-                            class="text-blue-400 hover:text-blue-300 underline">Términos del Servicio</a>, plazos de
-                        entrega y políticas de uso.
-                    </label>
-                </div>
-
-                <button id="submitPay"
-                    class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-green-500/30 transition-all flex items-center justify-center gap-2">
-                    <span id="button-text">Pagar Ahora</span>
-                    <div id="spinner"
-                        class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full">
-                    </div>
-                </button>
-                <div id="payment-message" class="hidden mt-4 text-center text-red-400 text-sm"></div>
-            </form>
-
-            <div class="mt-6 text-center">
-                <div class="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all mb-2">
-                    <i class="fab fa-cc-visa text-2xl text-white"></i>
-                    <i class="fab fa-cc-mastercard text-2xl text-white"></i>
-                    <i class="fab fa-cc-amex text-2xl text-white"></i>
-                </div>
-                <p class="text-xs text-gray-500"><i class="fas fa-lock mr-1"></i> Procesado por <span
-                        class="font-bold text-gray-400">Stripe</span></p>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <!-- particles.js eliminado: fondo animado reemplazado por CSS puro (styles.css) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script src="script.js" defer></script>
 
-    <!-- payment.js: se carga dinámicamente al abrir el modal de pago -->
+    <!-- Stripe Checkout: el pago ocurre en la página alojada por Stripe -->
     <script>
-        function loadPayment(amount) {
-            amount = amount || 3500;
-            if (window._paymentLoaded) { openPaymentModal(amount); return; }
-            var s = document.createElement('script');
-            s.src = 'payment.js';
-            s.onload = function () { window._paymentLoaded = true; openPaymentModal(amount); };
-            document.body.appendChild(s);
+        // Producto a cobrar según el servicio abierto en el modal.
+        // La clave debe existir en catalogo.php; el monto lo pone el servidor.
+        const PRODUCTO_POR_SERVICIO = {
+            marketing: 'redes-inicial',
+            branding: 'branding-inicial'
+        };
+
+        async function pagarServicioActual(boton) {
+            const producto = PRODUCTO_POR_SERVICIO[window._servicioAbierto];
+            if (!producto) {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                closeServiceModal();
+                return;
+            }
+            const original = boton.innerHTML;
+            boton.disabled = true;
+            boton.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i>Conectando…';
+            try {
+                const r = await fetch('stripe-checkout.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tipo: 'unico', producto: producto })
+                });
+                const data = await r.json();
+                if (data.ok && data.url) { window.location.href = data.url; return; }
+                throw new Error(data.error || 'No pudimos iniciar el pago.');
+            } catch (e) {
+                alert(e.message + ' Escríbenos por WhatsApp y lo resolvemos.');
+                boton.disabled = false;
+                boton.innerHTML = original;
+            }
         }
     </script>
 

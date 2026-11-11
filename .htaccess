@@ -1,12 +1,12 @@
 # Archivos internos: no servir por HTTP
 # - logs/ contiene registros de la integración de pagos
 # - config.php tiene credenciales
-# - mp-lib.php y mp-catalogo.php son includes, no endpoints
+# - catalogo.php, mp-lib.php y stripe-lib.php son includes, no endpoints
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^logs/ - [F,L]
 </IfModule>
-<FilesMatch "^(config\.php|mp-lib\.php|mp-catalogo\.php)$">
+<FilesMatch "^(config\.php|catalogo\.php|mp-lib\.php|stripe-lib\.php)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
