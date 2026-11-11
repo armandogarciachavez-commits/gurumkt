@@ -9,5 +9,8 @@ node_modules/
 # Credenciales locales (NO commitear)
 config.php
 
+# Logs de la integración de pagos (la carpeta y su .htaccess sí se versionan)
+logs/*.log
+
 # Archivos comprimidos no relacionados
 *.zip

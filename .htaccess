@@ -1,3 +1,21 @@
+# Archivos internos: no servir por HTTP
+# - logs/ contiene registros de la integración de pagos
+# - config.php tiene credenciales
+# - mp-lib.php y mp-catalogo.php son includes, no endpoints
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^logs/ - [F,L]
+</IfModule>
+<FilesMatch "^(config\.php|mp-lib\.php|mp-catalogo\.php)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
 # Canonical URL: forzar HTTPS + no-www
 # Redirige cualquier combinación (http, https, www) a https://gurumkt.com.mx/
 <IfModule mod_rewrite.c>
