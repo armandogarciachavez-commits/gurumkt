@@ -26,6 +26,7 @@ return [
     'conecta-esencial' => [
         'nombre'                     => 'Conecta Esencial',
         'descripcion'                => 'WhatsApp automatizado, captura de prospectos y agenda de citas.',
+        'respuestas_ia'              => 250,   // tope mensual de respuestas generadas con IA
         'implementacion'             => 2000.00,
         'implementacion_fundadores'  => 1000.00,
         'periodos' => [
@@ -38,6 +39,7 @@ return [
     'conecta-crecimiento' => [
         'nombre'                     => 'Conecta Crecimiento',
         'descripcion'                => 'Landing page de captación, flujos de automatización y seguimiento de prospectos.',
+        'respuestas_ia'              => 350,   // tope mensual de respuestas generadas con IA
         'implementacion'             => 3500.00,
         'implementacion_fundadores'  => 1750.00,
         'periodos' => [
@@ -50,6 +52,7 @@ return [
     'conecta-posicionamiento' => [
         'nombre'                     => 'Conecta Posicionamiento',
         'descripcion'                => 'Redes sociales, SEO local y automatización comercial completa.',
+        'respuestas_ia'              => 400,   // tope mensual de respuestas generadas con IA
         'implementacion'             => 5000.00,
         'implementacion_fundadores'  => 2500.00,
         'periodos' => [
