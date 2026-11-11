@@ -258,6 +258,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="/#hero" class="hover:text-blue-400 transition-colors">Inicio</a>
                 <a href="/#services" class="hover:text-blue-400 transition-colors">Servicios</a>
+                <a href="/guru-conecta.html" class="hover:text-blue-400 transition-colors">Paquetes</a>
                 <a href="/#portfolio" class="hover:text-blue-400 transition-colors">Portafolio</a>
                 <a href="/#contact" class="hover:text-blue-400 transition-colors">Contacto</a>
                 <a href="/noticias" class="hover:text-blue-400 transition-colors">Noticias</a>
@@ -274,6 +275,7 @@
             <div class="flex flex-col p-6 space-y-4">
                 <a href="/#hero" class="block hover:text-blue-400">Inicio</a>
                 <a href="/#services" class="block hover:text-blue-400">Servicios</a>
+                <a href="/guru-conecta.html" class="block hover:text-blue-400">Paquetes</a>
                 <a href="/#portfolio" class="block hover:text-blue-400">Portafolio</a>
                 <a href="/#contact" class="block hover:text-blue-400">Contacto</a>
                 <a href="/noticias" class="block hover:text-blue-400">Noticias</a>
@@ -892,6 +894,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
+        // Recalcula posiciones cuando terminan de cargar imágenes y fuentes:
+        // si no, las secciones de abajo se quedan invisibles y dejan un hueco.
+        window.addEventListener('load', () => AOS.refreshHard());
+        setTimeout(() => AOS.refreshHard(), 2500);
         particlesJS("particles-js", {
             "particles": { "number": { "value": 40 }, "color": { "value": "#ffffff" }, "opacity": { "value": 0.2, "random": true }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 }, "move": { "enable": true, "speed": 1 } },
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" } } }

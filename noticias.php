@@ -296,6 +296,7 @@ if ($current) {
             <div class="hidden md:flex space-x-8">
                 <a href="/#hero" class="hover:text-blue-400 transition-colors">Inicio</a>
                 <a href="/#services" class="hover:text-blue-400 transition-colors">Servicios</a>
+                <a href="/guru-conecta.html" class="hover:text-blue-400 transition-colors">Paquetes</a>
                 <a href="/#portfolio" class="hover:text-blue-400 transition-colors">Portafolio</a>
                 <a href="/#contact" class="hover:text-blue-400 transition-colors">Contacto</a>
                 <a href="/noticias" class="hover:text-blue-400 transition-colors">Noticias</a>
@@ -312,6 +313,7 @@ if ($current) {
             <div class="flex flex-col p-6 space-y-4">
                 <a href="/#hero" class="block hover:text-blue-400">Inicio</a>
                 <a href="/#services" class="block hover:text-blue-400">Servicios</a>
+                <a href="/guru-conecta.html" class="block hover:text-blue-400">Paquetes</a>
                 <a href="/#portfolio" class="block hover:text-blue-400">Portafolio</a>
                 <a href="/#contact" class="block hover:text-blue-400">Contacto</a>
                 <a href="/noticias" class="block hover:text-blue-400">Noticias</a>

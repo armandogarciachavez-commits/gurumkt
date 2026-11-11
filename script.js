@@ -6,6 +6,28 @@ if (typeof AOS !== 'undefined') {
         mirror: false,
         offset: 100,
     });
+
+    // AOS guarda la posición de cada elemento al arrancar. Como las imágenes
+    // son lazy y las fuentes cargan después, esas posiciones quedan obsoletas
+    // y las secciones de abajo (FAQ) jamás se revelaban: la página mostraba
+    // un hueco en blanco antes del footer. Recalculamos cuando todo terminó
+    // de cargar y cuando cambia el tamaño del documento.
+    const refrescarAOS = () => AOS.refreshHard();
+
+    window.addEventListener('load', refrescarAOS);
+
+    if ('ResizeObserver' in window) {
+        let alto = document.body.scrollHeight;
+        new ResizeObserver(() => {
+            if (Math.abs(document.body.scrollHeight - alto) > 50) {
+                alto = document.body.scrollHeight;
+                refrescarAOS();
+            }
+        }).observe(document.body);
+    }
+
+    // Red de seguridad por si alguna imagen tarda más de lo normal.
+    setTimeout(refrescarAOS, 2500);
 }
 
 // Fondo animado: particles.js reemplazado por CSS puro (ver styles.css #particles-js)

@@ -210,39 +210,47 @@ body {
     animation: float 4s ease-in-out infinite;
 }
 
-/* Carousel Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-312px * 12));
-    }
-
-    /* Width of slide * number of unique slides (12 * 312px) */
+/* Cuadrícula de logos de clientes (sustituye al carrusel).
+   Los recuadros son claros a propósito: la mayoría de estos logos son de
+   tinta oscura y sobre fondo negro resultaban ilegibles. */
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: 1.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.93);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    transition: background .3s, border-color .3s, transform .3s, box-shadow .3s;
 }
 
-.slide-track {
-    animation: scroll 40s linear infinite;
-    /* Slowed down for better readability */
+.logo-box:hover {
+    background: #fff;
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.35);
 }
 
-.slider:hover .slide-track {
-    animation-play-state: paused;
-}
-
-.logo-carousel {
-    /* filter: brightness(0) invert(1); REMOVED for original color */
-    opacity: 0.8;
-    transition: all 0.3s;
-    height: 110px;
+.logo-box img {
+    max-height: 90px;
+    max-width: 100%;
     width: auto;
-    max-width: 280px;
     object-fit: contain;
+    transition: transform .3s;
 }
 
-.logo-carousel:hover {
-    opacity: 1;
-    transform: scale(1.1);
+.logo-box:hover img {
+    transform: scale(1.06);
+}
+
+@media (max-width: 640px) {
+    .logo-box {
+        min-height: 110px;
+        padding: 1.25rem .75rem;
+    }
+
+    .logo-box img {
+        max-height: 60px;
+    }
 }
