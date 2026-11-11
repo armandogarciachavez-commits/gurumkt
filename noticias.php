@@ -478,6 +478,7 @@ if ($current) {
                     <a href="/web-design.html" class="hover:text-white transition-colors">Diseño Web</a>
                     <a href="/editorial.html" class="hover:text-white transition-colors">Diseño Editorial</a>
                     <a href="/guru-cards.html" class="hover:text-white transition-colors">Guru Cards</a>
+                    <a href="/guru-conecta.html" class="hover:text-white transition-colors">Guru Conecta</a>
                     <a href="/agencia-marketing-colima.html" class="hover:text-white transition-colors">Marketing en Colima</a>
                     <a href="/diseno-web-colima.html" class="hover:text-white transition-colors">Diseño Web en Colima</a>
                     <a href="/audiovisual.html" class="hover:text-white transition-colors">Producción Audiovisual</a>
