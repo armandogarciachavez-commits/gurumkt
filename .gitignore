@@ -1,5 +1,7 @@
 node_modules/
 .DS_Store
+# Metadatos de macOS en volúmenes no-HFS (se cuelan con patrones como *.php)
+._*
 *.log
 .env
 .env.local
