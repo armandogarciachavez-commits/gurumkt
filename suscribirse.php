@@ -80,7 +80,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
                                 </div>
                                 <p class="text-xs text-gray-400 mt-3">
                                     <i class="fas fa-robot text-green-400 mr-1"></i>
-                                    Hasta <strong class="text-white"><?= (int) $plan['respuestas_ia'] ?></strong> respuestas de IA al mes
+                                    <strong class="text-white"><?= (int) $plan['respuestas_ia'] ?></strong> respuestas de IA al mes en este paquete
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
                                     Implementación: <?= money($plan['implementacion']) ?> — pago único por transferencia
