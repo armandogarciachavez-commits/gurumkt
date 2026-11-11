@@ -53,6 +53,8 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
         <h1 class="text-3xl md:text-4xl font-bold mb-3">Activa tu suscripción</h1>
         <p class="text-gray-400 mb-10">
             Elige tu plan y confirma. Te llevamos a Mercado Pago para registrar tu método de pago de forma segura.
+            <span class="block mt-3 text-sm text-gray-500">Aquí autorizas solo la mensualidad. La implementación
+            se paga por transferencia bancaria y te enviamos los datos por separado.</span>
         </p>
 
         <form id="form-suscripcion" class="glass-card p-8 rounded-3xl border border-white/10 space-y-8">
@@ -77,7 +79,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
                                     </p>
                                 </div>
                                 <p class="text-xs text-gray-500 mt-3">
-                                    Implementación: <?= money($plan['implementacion']) ?> (pago único, se cobra aparte)
+                                    Implementación: <?= money($plan['implementacion']) ?> — pago único por transferencia
                                 </p>
                             </div>
                         </label>
@@ -129,7 +131,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
             <!-- Resumen -->
             <div class="glass-card p-5 rounded-2xl border border-green-500/30 bg-green-500/5">
                 <div class="flex items-baseline justify-between">
-                    <span class="text-sm text-gray-300">Se te cobrará</span>
+                    <span class="text-sm text-gray-300">Mensualidad recurrente</span>
                     <span class="text-2xl font-bold text-white" id="resumen-monto">—</span>
                 </div>
                 <p class="text-xs text-gray-400 mt-2" id="resumen-detalle">—</p>
@@ -143,7 +145,9 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
                     <a href="contrato-servicios.html" target="_blank" class="text-green-400 hover:text-green-300 underline">Términos y Condiciones</a>
                     y el
                     <a href="aviso-privacidad.html" target="_blank" class="text-green-400 hover:text-green-300 underline">Aviso de Privacidad</a>.
-                    Entiendo que la implementación se cobra por separado y que puedo cancelar la suscripción cuando quiera.
+                    Entiendo que aquí solo autorizo la <strong class="text-gray-200">mensualidad recurrente</strong>, que la
+                    implementación se paga aparte por transferencia bancaria, y que puedo cancelar la suscripción
+                    cuando quiera.
                 </span>
             </label>
 
