@@ -29,7 +29,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://gurumkt.com.mx/suscribirse.php">
 
-    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="final.css?v=0c59d63d">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
