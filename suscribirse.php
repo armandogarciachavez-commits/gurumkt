@@ -170,7 +170,7 @@ function money($v) { return '$' . number_format((float) $v, 0, '.', ','); }
 
         <p class="text-center text-sm text-gray-500 mt-8">
             ¿Dudas antes de pagar?
-            <a href="https://wa.me/523141461520?text=CONECTA" target="_blank" rel="noopener"
+            <a href="https://wa.me/525667207980?text=CONECTA" target="_blank" rel="noopener"
                 class="text-green-400 hover:text-green-300">Escríbenos por WhatsApp</a>
         </p>
     </div>
